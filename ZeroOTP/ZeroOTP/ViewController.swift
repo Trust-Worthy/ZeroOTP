@@ -29,10 +29,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // Set datasource and delegate for the tableView
         accountTableView.delegate = self
-        accountTableView.dataSource = self)
+        accountTableView.dataSource = self
         
     }
-    
+    // Call a method on this view controller when the button is tapped.”
     @objc func addAccountTapped() {
         print("Add button tapped!")
     }

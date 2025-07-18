@@ -86,6 +86,38 @@
             </objects>
             <point key="canvasLocation" x="1052.6717557251909" y="-27.464788732394368"/>
         </scene>
+        <!--Add Account View Controller-->
+        <scene sceneID="xN9-jj-P7a">
+            <objects>
+                <viewController id="dDr-5Y-zpY" customClass="AddAccountViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JsU-1S-r2c">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add Secret" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zhN-pr-weH">
+                                <rect key="frame" x="97" y="399.66666666666669" width="199" height="52.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kH4-8Z-8OY">
+                                <rect key="frame" x="139" y="164" width="116" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4q1-KY-9Zn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zhN-pr-weH" firstAttribute="centerY" secondItem="JsU-1S-r2c" secondAttribute="centerY" id="0o5-Yb-McN"/>
+                            <constraint firstItem="zhN-pr-weH" firstAttribute="centerX" secondItem="JsU-1S-r2c" secondAttribute="centerX" id="BRF-jK-6fI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4tl-Bc-g4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="-27"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="wWF-dX-Yep">
             <objects>

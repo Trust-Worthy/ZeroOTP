@@ -36,7 +36,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     // Call a method on this view controller when the button is tapped.”
     @objc func addAccountTapped() {
-        print("Add button tapped!")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let addVC = storyboard.instantiateViewController(withIdentifier: "AddAccountViewController") as? AddAccountViewController {
+            addVC.modalPresentationStyle = .automatic
+            self.present(addVC, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

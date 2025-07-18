@@ -12,7 +12,6 @@ class OTPAccountCell: UITableViewCell {
     
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var otpLabel: UILabel!
-    @IBOutlet weak var timerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

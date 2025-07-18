@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		671C6A742E29F63A008081D4 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671C6A732E29F63A008081D4 /* AddAccountViewController.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		671C6A522E29E9DC008081D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -31,7 +27,6 @@
 		671C6A382E29E9DB008081D4 /* ZeroOTP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeroOTP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		671C6A512E29E9DC008081D4 /* ZeroOTPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZeroOTPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		671C6A5B2E29E9DC008081D4 /* ZeroOTPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZeroOTPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		671C6A732E29F63A008081D4 /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -93,7 +88,6 @@
 		671C6A2F2E29E9DB008081D4 = {
 			isa = PBXGroup;
 			children = (
-				671C6A732E29F63A008081D4 /* AddAccountViewController.swift */,
 				671C6A3A2E29E9DB008081D4 /* ZeroOTP */,
 				671C6A542E29E9DC008081D4 /* ZeroOTPTests */,
 				671C6A5E2E29E9DC008081D4 /* ZeroOTPUITests */,
@@ -255,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				671C6A742E29F63A008081D4 /* AddAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

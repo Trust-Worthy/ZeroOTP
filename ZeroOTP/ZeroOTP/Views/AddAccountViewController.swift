@@ -20,6 +20,11 @@ class AddAccountViewController: UIViewController {
             return
         }
         
+        guard isValidBase32(secret) else {
+            showAlert(message: "Invalid Base32 TOTP secret.")
+            return
+        }
+        
         print("User Input is saved...")
     }
     @IBOutlet weak var secretTextField: UITextField!

@@ -17,9 +17,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        accountTableView.delegate = self
-        accountTableView.dataSource = self
+        // Set title for the navigation bar
+        self.title = "ZeroOTP"
         
+        // Add a "+" button to the right of the nav bar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(addAccountTapped))
+        
+        
+        // Set datasource and delegate for the tableView
+        accountTableView.delegate = self
+        accountTableView.dataSource = self)
+        
+    }
+    
+    @objc func addAccountTapped() {
+        print("Add button tapped!")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

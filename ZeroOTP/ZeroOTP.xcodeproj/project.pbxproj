@@ -7,53 +7,53 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		672DC6E32E29C55500CB66BD /* PBXContainerItemProxy */ = {
+		671C6A522E29E9DC008081D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 672DC6C12E29C55400CB66BD /* Project object */;
+			containerPortal = 671C6A302E29E9DB008081D4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 672DC6C82E29C55400CB66BD;
+			remoteGlobalIDString = 671C6A372E29E9DB008081D4;
 			remoteInfo = ZeroOTP;
 		};
-		672DC6ED2E29C55500CB66BD /* PBXContainerItemProxy */ = {
+		671C6A5C2E29E9DC008081D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 672DC6C12E29C55400CB66BD /* Project object */;
+			containerPortal = 671C6A302E29E9DB008081D4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 672DC6C82E29C55400CB66BD;
+			remoteGlobalIDString = 671C6A372E29E9DB008081D4;
 			remoteInfo = ZeroOTP;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		672DC6C92E29C55400CB66BD /* ZeroOTP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeroOTP.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		672DC6E22E29C55500CB66BD /* ZeroOTPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZeroOTPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		672DC6EC2E29C55500CB66BD /* ZeroOTPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZeroOTPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		671C6A382E29E9DB008081D4 /* ZeroOTP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeroOTP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		671C6A512E29E9DC008081D4 /* ZeroOTPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZeroOTPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		671C6A5B2E29E9DC008081D4 /* ZeroOTPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZeroOTPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		672DC6F42E29C55500CB66BD /* Exceptions for "ZeroOTP" folder in "ZeroOTP" target */ = {
+		671C6A632E29E9DC008081D4 /* Exceptions for "ZeroOTP" folder in "ZeroOTP" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 672DC6C82E29C55400CB66BD /* ZeroOTP */;
+			target = 671C6A372E29E9DB008081D4 /* ZeroOTP */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		672DC6CB2E29C55400CB66BD /* ZeroOTP */ = {
+		671C6A3A2E29E9DB008081D4 /* ZeroOTP */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				672DC6F42E29C55500CB66BD /* Exceptions for "ZeroOTP" folder in "ZeroOTP" target */,
+				671C6A632E29E9DC008081D4 /* Exceptions for "ZeroOTP" folder in "ZeroOTP" target */,
 			);
 			path = ZeroOTP;
 			sourceTree = "<group>";
 		};
-		672DC6E52E29C55500CB66BD /* ZeroOTPTests */ = {
+		671C6A542E29E9DC008081D4 /* ZeroOTPTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ZeroOTPTests;
 			sourceTree = "<group>";
 		};
-		672DC6EF2E29C55500CB66BD /* ZeroOTPUITests */ = {
+		671C6A5E2E29E9DC008081D4 /* ZeroOTPUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ZeroOTPUITests;
 			sourceTree = "<group>";
@@ -61,21 +61,21 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		672DC6C62E29C55400CB66BD /* Frameworks */ = {
+		671C6A352E29E9DB008081D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		672DC6DF2E29C55500CB66BD /* Frameworks */ = {
+		671C6A4E2E29E9DC008081D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		672DC6E92E29C55500CB66BD /* Frameworks */ = {
+		671C6A582E29E9DC008081D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -85,22 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		672DC6C02E29C55400CB66BD = {
+		671C6A2F2E29E9DB008081D4 = {
 			isa = PBXGroup;
 			children = (
-				672DC6CB2E29C55400CB66BD /* ZeroOTP */,
-				672DC6E52E29C55500CB66BD /* ZeroOTPTests */,
-				672DC6EF2E29C55500CB66BD /* ZeroOTPUITests */,
-				672DC6CA2E29C55400CB66BD /* Products */,
+				671C6A3A2E29E9DB008081D4 /* ZeroOTP */,
+				671C6A542E29E9DC008081D4 /* ZeroOTPTests */,
+				671C6A5E2E29E9DC008081D4 /* ZeroOTPUITests */,
+				671C6A392E29E9DB008081D4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		672DC6CA2E29C55400CB66BD /* Products */ = {
+		671C6A392E29E9DB008081D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				672DC6C92E29C55400CB66BD /* ZeroOTP.app */,
-				672DC6E22E29C55500CB66BD /* ZeroOTPTests.xctest */,
-				672DC6EC2E29C55500CB66BD /* ZeroOTPUITests.xctest */,
+				671C6A382E29E9DB008081D4 /* ZeroOTP.app */,
+				671C6A512E29E9DC008081D4 /* ZeroOTPTests.xctest */,
+				671C6A5B2E29E9DC008081D4 /* ZeroOTPUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,134 +108,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		672DC6C82E29C55400CB66BD /* ZeroOTP */ = {
+		671C6A372E29E9DB008081D4 /* ZeroOTP */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 672DC6F52E29C55500CB66BD /* Build configuration list for PBXNativeTarget "ZeroOTP" */;
+			buildConfigurationList = 671C6A642E29E9DC008081D4 /* Build configuration list for PBXNativeTarget "ZeroOTP" */;
 			buildPhases = (
-				672DC6C52E29C55400CB66BD /* Sources */,
-				672DC6C62E29C55400CB66BD /* Frameworks */,
-				672DC6C72E29C55400CB66BD /* Resources */,
+				671C6A342E29E9DB008081D4 /* Sources */,
+				671C6A352E29E9DB008081D4 /* Frameworks */,
+				671C6A362E29E9DB008081D4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				672DC6CB2E29C55400CB66BD /* ZeroOTP */,
+				671C6A3A2E29E9DB008081D4 /* ZeroOTP */,
 			);
 			name = ZeroOTP;
 			packageProductDependencies = (
 			);
 			productName = ZeroOTP;
-			productReference = 672DC6C92E29C55400CB66BD /* ZeroOTP.app */;
+			productReference = 671C6A382E29E9DB008081D4 /* ZeroOTP.app */;
 			productType = "com.apple.product-type.application";
 		};
-		672DC6E12E29C55500CB66BD /* ZeroOTPTests */ = {
+		671C6A502E29E9DC008081D4 /* ZeroOTPTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 672DC6FA2E29C55500CB66BD /* Build configuration list for PBXNativeTarget "ZeroOTPTests" */;
+			buildConfigurationList = 671C6A692E29E9DC008081D4 /* Build configuration list for PBXNativeTarget "ZeroOTPTests" */;
 			buildPhases = (
-				672DC6DE2E29C55500CB66BD /* Sources */,
-				672DC6DF2E29C55500CB66BD /* Frameworks */,
-				672DC6E02E29C55500CB66BD /* Resources */,
+				671C6A4D2E29E9DC008081D4 /* Sources */,
+				671C6A4E2E29E9DC008081D4 /* Frameworks */,
+				671C6A4F2E29E9DC008081D4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				672DC6E42E29C55500CB66BD /* PBXTargetDependency */,
+				671C6A532E29E9DC008081D4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				672DC6E52E29C55500CB66BD /* ZeroOTPTests */,
+				671C6A542E29E9DC008081D4 /* ZeroOTPTests */,
 			);
 			name = ZeroOTPTests;
 			packageProductDependencies = (
 			);
 			productName = ZeroOTPTests;
-			productReference = 672DC6E22E29C55500CB66BD /* ZeroOTPTests.xctest */;
+			productReference = 671C6A512E29E9DC008081D4 /* ZeroOTPTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		672DC6EB2E29C55500CB66BD /* ZeroOTPUITests */ = {
+		671C6A5A2E29E9DC008081D4 /* ZeroOTPUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 672DC6FD2E29C55500CB66BD /* Build configuration list for PBXNativeTarget "ZeroOTPUITests" */;
+			buildConfigurationList = 671C6A6C2E29E9DC008081D4 /* Build configuration list for PBXNativeTarget "ZeroOTPUITests" */;
 			buildPhases = (
-				672DC6E82E29C55500CB66BD /* Sources */,
-				672DC6E92E29C55500CB66BD /* Frameworks */,
-				672DC6EA2E29C55500CB66BD /* Resources */,
+				671C6A572E29E9DC008081D4 /* Sources */,
+				671C6A582E29E9DC008081D4 /* Frameworks */,
+				671C6A592E29E9DC008081D4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				672DC6EE2E29C55500CB66BD /* PBXTargetDependency */,
+				671C6A5D2E29E9DC008081D4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				672DC6EF2E29C55500CB66BD /* ZeroOTPUITests */,
+				671C6A5E2E29E9DC008081D4 /* ZeroOTPUITests */,
 			);
 			name = ZeroOTPUITests;
 			packageProductDependencies = (
 			);
 			productName = ZeroOTPUITests;
-			productReference = 672DC6EC2E29C55500CB66BD /* ZeroOTPUITests.xctest */;
+			productReference = 671C6A5B2E29E9DC008081D4 /* ZeroOTPUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		672DC6C12E29C55400CB66BD /* Project object */ = {
+		671C6A302E29E9DB008081D4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
-					672DC6C82E29C55400CB66BD = {
+					671C6A372E29E9DB008081D4 = {
 						CreatedOnToolsVersion = 16.4;
 					};
-					672DC6E12E29C55500CB66BD = {
+					671C6A502E29E9DC008081D4 = {
 						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 672DC6C82E29C55400CB66BD;
+						TestTargetID = 671C6A372E29E9DB008081D4;
 					};
-					672DC6EB2E29C55500CB66BD = {
+					671C6A5A2E29E9DC008081D4 = {
 						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 672DC6C82E29C55400CB66BD;
+						TestTargetID = 671C6A372E29E9DB008081D4;
 					};
 				};
 			};
-			buildConfigurationList = 672DC6C42E29C55400CB66BD /* Build configuration list for PBXProject "ZeroOTP" */;
+			buildConfigurationList = 671C6A332E29E9DB008081D4 /* Build configuration list for PBXProject "ZeroOTP" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 672DC6C02E29C55400CB66BD;
+			mainGroup = 671C6A2F2E29E9DB008081D4;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 672DC6CA2E29C55400CB66BD /* Products */;
+			productRefGroup = 671C6A392E29E9DB008081D4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				672DC6C82E29C55400CB66BD /* ZeroOTP */,
-				672DC6E12E29C55500CB66BD /* ZeroOTPTests */,
-				672DC6EB2E29C55500CB66BD /* ZeroOTPUITests */,
+				671C6A372E29E9DB008081D4 /* ZeroOTP */,
+				671C6A502E29E9DC008081D4 /* ZeroOTPTests */,
+				671C6A5A2E29E9DC008081D4 /* ZeroOTPUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		672DC6C72E29C55400CB66BD /* Resources */ = {
+		671C6A362E29E9DB008081D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		672DC6E02E29C55500CB66BD /* Resources */ = {
+		671C6A4F2E29E9DC008081D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		672DC6EA2E29C55500CB66BD /* Resources */ = {
+		671C6A592E29E9DC008081D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -245,21 +245,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		672DC6C52E29C55400CB66BD /* Sources */ = {
+		671C6A342E29E9DB008081D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		672DC6DE2E29C55500CB66BD /* Sources */ = {
+		671C6A4D2E29E9DC008081D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		672DC6E82E29C55500CB66BD /* Sources */ = {
+		671C6A572E29E9DC008081D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,20 +269,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		672DC6E42E29C55500CB66BD /* PBXTargetDependency */ = {
+		671C6A532E29E9DC008081D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 672DC6C82E29C55400CB66BD /* ZeroOTP */;
-			targetProxy = 672DC6E32E29C55500CB66BD /* PBXContainerItemProxy */;
+			target = 671C6A372E29E9DB008081D4 /* ZeroOTP */;
+			targetProxy = 671C6A522E29E9DC008081D4 /* PBXContainerItemProxy */;
 		};
-		672DC6EE2E29C55500CB66BD /* PBXTargetDependency */ = {
+		671C6A5D2E29E9DC008081D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 672DC6C82E29C55400CB66BD /* ZeroOTP */;
-			targetProxy = 672DC6ED2E29C55500CB66BD /* PBXContainerItemProxy */;
+			target = 671C6A372E29E9DB008081D4 /* ZeroOTP */;
+			targetProxy = 671C6A5C2E29E9DC008081D4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		672DC6F62E29C55500CB66BD /* Debug */ = {
+		671C6A652E29E9DC008081D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -292,14 +292,11 @@
 				DEVELOPMENT_TEAM = RKTJKHD762;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ZeroOTP/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = jonm1macprocode;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,7 +310,7 @@
 			};
 			name = Debug;
 		};
-		672DC6F72E29C55500CB66BD /* Release */ = {
+		671C6A662E29E9DC008081D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -323,14 +320,11 @@
 				DEVELOPMENT_TEAM = RKTJKHD762;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ZeroOTP/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = jonm1macprocode;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,7 +338,7 @@
 			};
 			name = Release;
 		};
-		672DC6F82E29C55500CB66BD /* Debug */ = {
+		671C6A672E29E9DC008081D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -408,7 +402,7 @@
 			};
 			name = Debug;
 		};
-		672DC6F92E29C55500CB66BD /* Release */ = {
+		671C6A682E29E9DC008081D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -465,7 +459,7 @@
 			};
 			name = Release;
 		};
-		672DC6FB2E29C55500CB66BD /* Debug */ = {
+		671C6A6A2E29E9DC008081D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,7 +478,7 @@
 			};
 			name = Debug;
 		};
-		672DC6FC2E29C55500CB66BD /* Release */ = {
+		671C6A6B2E29E9DC008081D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -503,7 +497,7 @@
 			};
 			name = Release;
 		};
-		672DC6FE2E29C55500CB66BD /* Debug */ = {
+		671C6A6D2E29E9DC008081D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -520,7 +514,7 @@
 			};
 			name = Debug;
 		};
-		672DC6FF2E29C55500CB66BD /* Release */ = {
+		671C6A6E2E29E9DC008081D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -540,43 +534,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		672DC6C42E29C55400CB66BD /* Build configuration list for PBXProject "ZeroOTP" */ = {
+		671C6A332E29E9DB008081D4 /* Build configuration list for PBXProject "ZeroOTP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				672DC6F82E29C55500CB66BD /* Debug */,
-				672DC6F92E29C55500CB66BD /* Release */,
+				671C6A672E29E9DC008081D4 /* Debug */,
+				671C6A682E29E9DC008081D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		672DC6F52E29C55500CB66BD /* Build configuration list for PBXNativeTarget "ZeroOTP" */ = {
+		671C6A642E29E9DC008081D4 /* Build configuration list for PBXNativeTarget "ZeroOTP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				672DC6F62E29C55500CB66BD /* Debug */,
-				672DC6F72E29C55500CB66BD /* Release */,
+				671C6A652E29E9DC008081D4 /* Debug */,
+				671C6A662E29E9DC008081D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		672DC6FA2E29C55500CB66BD /* Build configuration list for PBXNativeTarget "ZeroOTPTests" */ = {
+		671C6A692E29E9DC008081D4 /* Build configuration list for PBXNativeTarget "ZeroOTPTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				672DC6FB2E29C55500CB66BD /* Debug */,
-				672DC6FC2E29C55500CB66BD /* Release */,
+				671C6A6A2E29E9DC008081D4 /* Debug */,
+				671C6A6B2E29E9DC008081D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		672DC6FD2E29C55500CB66BD /* Build configuration list for PBXNativeTarget "ZeroOTPUITests" */ = {
+		671C6A6C2E29E9DC008081D4 /* Build configuration list for PBXNativeTarget "ZeroOTPUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				672DC6FE2E29C55500CB66BD /* Debug */,
-				672DC6FF2E29C55500CB66BD /* Release */,
+				671C6A6D2E29E9DC008081D4 /* Debug */,
+				671C6A6E2E29E9DC008081D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 672DC6C12E29C55400CB66BD /* Project object */;
+	rootObject = 671C6A302E29E9DB008081D4 /* Project object */;
 }

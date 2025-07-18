@@ -2,24 +2,38 @@
 //  ViewController.swift
 //  ZeroOTP
 //
-//  Created by Jonathan Bateman on 7/17/25.
+//  Created by Trust-Worthy on 7/17/25.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+
+    @IBOutlet weak var accountTableView: UITableView!
     
-    private var accounts: [Account] = []
-    
+    var accounts: [OTPAccount] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        accountTableView.delegate = self
+        accountTableView.dataSource = self
         
-        // Add the title
-        title = "ZeroOTP"
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        cell.textLabel?.text = "Row \(indexPath.row)"
+        
+        return cell
+    }
+    
 
 
 }

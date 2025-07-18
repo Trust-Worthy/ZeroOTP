@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var accountTableView: UITableView!
     
-    var accounts: [OTPAccount] = []
+    var OTPAccounts: [OTPAccount] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             target: self,
             action: #selector(addAccountTapped))
         
+        accountTableView.register(OTPAccountCell.self, forCellReuseIdentifier: "OTPAccountCell")
+        
         
         // Set datasource and delegate for the tableView
         accountTableView.delegate = self
@@ -38,13 +40,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return OTPAccounts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OTPAccountCell", for: indexPath) as? OTPAccountCell else {
+            fatalError("Could not dequeue OTPAccountCell")
+        }
         
-        cell.textLabel?.text = "Row \(indexPath.row)"
+        cell.accountLabel.text = ""
+        cell.otpLabel.text = ""
         
         return cell
     }

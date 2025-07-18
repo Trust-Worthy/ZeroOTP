@@ -99,11 +99,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kH4-8Z-8OY">
-                                <rect key="frame" x="139" y="164" width="116" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRV-nV-C1l">
+                                <rect key="frame" x="15" y="118" width="77" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="dDr-5Y-zpY" eventType="touchUpInside" id="bkg-3y-xe6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kH4-8Z-8OY">
+                                <rect key="frame" x="316" y="118" width="61" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="dDr-5Y-zpY" eventType="touchUpInside" id="89e-za-2HT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4q1-KY-9Zn"/>
@@ -111,8 +121,13 @@
                         <constraints>
                             <constraint firstItem="zhN-pr-weH" firstAttribute="centerY" secondItem="JsU-1S-r2c" secondAttribute="centerY" id="0o5-Yb-McN"/>
                             <constraint firstItem="zhN-pr-weH" firstAttribute="centerX" secondItem="JsU-1S-r2c" secondAttribute="centerX" id="BRF-jK-6fI"/>
+                            <constraint firstItem="kH4-8Z-8OY" firstAttribute="leading" secondItem="YRV-nV-C1l" secondAttribute="trailing" constant="224" id="F68-EC-5sZ"/>
+                            <constraint firstItem="kH4-8Z-8OY" firstAttribute="leading" secondItem="YRV-nV-C1l" secondAttribute="trailing" constant="224" id="wLk-Y3-z2g"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="secretTextField" destination="zhN-pr-weH" id="1bh-rz-e2U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tl-Bc-g4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

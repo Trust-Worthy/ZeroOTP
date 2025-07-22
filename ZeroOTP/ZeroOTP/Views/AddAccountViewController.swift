@@ -102,14 +102,39 @@ class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
 
     func startQRCodeScanner() {
+        
+        /*
+         
+         Flow Summary
+
+             Request camera device
+
+             Wrap it in an input
+
+             Attach input and output to a session
+
+             Add a live camera feed layer
+
+             Start the session
+
+             When a QR code is detected, you get a callback via the delegate
+         */
+        
+        // Central pipeline that manages data input from camera to output
+        // This is like a live data bus for video input/output
         captureSession = AVCaptureSession()
         
+        // Requesting the default video device which is the rear-facing camera
+        // This gives me access to the camera hardward
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
             return
         }
         
+        // variable that stores the input object that "wraps" the camera
         let videoInput: AVCaptureDeviceInput
         
+        // By wrapping the video Capture Device in an AV capture device input
+        // it turns it into a usable input stream that the session has access to
         do {
             videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
         } catch {

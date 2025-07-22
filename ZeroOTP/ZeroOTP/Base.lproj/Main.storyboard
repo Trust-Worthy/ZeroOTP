@@ -120,20 +120,34 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXS-Qu-aMw">
+                                <rect key="frame" x="137" y="565" width="119" height="74"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="ScanQrcode"/>
+                                <connections>
+                                    <action selector="scanQRButton:" destination="dDr-5Y-zpY" eventType="touchUpInside" id="2BQ-MJ-VC2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4q1-KY-9Zn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="BXS-Qu-aMw" firstAttribute="leading" secondItem="4q1-KY-9Zn" secondAttribute="leading" constant="137" id="0P8-mq-mzJ"/>
                             <constraint firstItem="zhN-pr-weH" firstAttribute="centerY" secondItem="JsU-1S-r2c" secondAttribute="centerY" id="0o5-Yb-McN"/>
                             <constraint firstItem="zhN-pr-weH" firstAttribute="top" secondItem="4ae-5o-8d6" secondAttribute="bottom" constant="119.67" id="8Lu-YJ-5Jb"/>
                             <constraint firstItem="zhN-pr-weH" firstAttribute="centerX" secondItem="JsU-1S-r2c" secondAttribute="centerX" id="BRF-jK-6fI"/>
+                            <constraint firstItem="4q1-KY-9Zn" firstAttribute="trailing" secondItem="BXS-Qu-aMw" secondAttribute="trailing" constant="137" id="CC0-Mg-OHM"/>
                             <constraint firstItem="kH4-8Z-8OY" firstAttribute="leading" secondItem="YRV-nV-C1l" secondAttribute="trailing" constant="224" id="F68-EC-5sZ"/>
                             <constraint firstItem="4q1-KY-9Zn" firstAttribute="trailing" secondItem="zhN-pr-weH" secondAttribute="trailing" constant="97" id="HO2-yA-kBT"/>
                             <constraint firstItem="4q1-KY-9Zn" firstAttribute="trailing" secondItem="4ae-5o-8d6" secondAttribute="trailing" constant="96" id="Ng7-6t-g7w"/>
                             <constraint firstItem="4ae-5o-8d6" firstAttribute="leading" secondItem="4q1-KY-9Zn" secondAttribute="leading" constant="96" id="ZRG-Eq-KPC"/>
+                            <constraint firstItem="BXS-Qu-aMw" firstAttribute="top" secondItem="zhN-pr-weH" secondAttribute="bottom" constant="112.67" id="e4l-3m-AWR"/>
                             <constraint firstItem="zhN-pr-weH" firstAttribute="leading" secondItem="4q1-KY-9Zn" secondAttribute="leading" constant="97" id="oZ1-0V-wtd"/>
+                            <constraint firstItem="YRV-nV-C1l" firstAttribute="top" secondItem="4q1-KY-9Zn" secondAttribute="top" id="pBv-yO-n8i"/>
+                            <constraint firstItem="kH4-8Z-8OY" firstAttribute="top" secondItem="4q1-KY-9Zn" secondAttribute="top" id="rNH-TB-R4z"/>
                             <constraint firstItem="kH4-8Z-8OY" firstAttribute="leading" secondItem="YRV-nV-C1l" secondAttribute="trailing" constant="224" id="wLk-Y3-z2g"/>
                             <constraint firstItem="4ae-5o-8d6" firstAttribute="centerX" secondItem="JsU-1S-r2c" secondAttribute="centerX" id="xxm-8N-Qrg"/>
+                            <constraint firstItem="BXS-Qu-aMw" firstAttribute="centerX" secondItem="JsU-1S-r2c" secondAttribute="centerX" id="zgU-XD-3Xm"/>
                         </constraints>
                     </view>
                     <connections>

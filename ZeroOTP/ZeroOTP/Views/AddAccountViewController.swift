@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol AddAccountDelegate: AnyObject {
     func didAddAccount(_ account: OTPAccount)
 }
 
-class AddAccountViewController: UIViewController {
+class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate  {
     
     // This is the button that allows a user to cancel adding an OTP account
     @IBAction func cancelTapped(_ sender: UIButton) {
@@ -67,6 +68,14 @@ class AddAccountViewController: UIViewController {
     @IBOutlet weak var accountNameTextField: UITextField!
     weak var delegate: AddAccountDelegate?
     
+    @IBAction func scanQRButton(_ sender: UIButton) {
+        startQRCodeScanner()
+    }
+    
+    // Properties for the scanner
+    var captureSession: AVCaptureSession!
+    var previewLayer: AVCaptureVideoPreviewLayer!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +101,10 @@ class AddAccountViewController: UIViewController {
         return string.uppercased().allSatisfy { base32Charset.contains($0) }
     }
 
-    
+    func startQRCodeScanner() {
+        captureSession = AVCaptureSession()
+        
+        guard 
+    }
 
 }

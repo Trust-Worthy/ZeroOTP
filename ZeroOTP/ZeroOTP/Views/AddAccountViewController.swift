@@ -104,7 +104,38 @@ class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjects
     func startQRCodeScanner() {
         captureSession = AVCaptureSession()
         
-        guard 
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
+            return
+        }
+        
+        let videoInput: AVCaptureDeviceInput
+        
+        do {
+            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+        } catch {
+            showAlert(message: "Camera Unavailable")
+            return
+        }
+        
+        if captureSession.canAddInput(videoInput) {
+            captureSession.addInput(videoInput)
+        } else {
+            showAlert(message: "Could not add video input!")
+            return
+        }
+        
+        let metadataOutput = AVCaptureMetadataOutput()
+        
+        if captureSession.canAddOutput(metadataOutput) {
+            captureSession.addOutput(metadataOutput)
+            
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            metadataOutput.metadataObjectTypes = [.qr]
+        } else {
+            showAlert(message: "Could not scan for qr code. Enter code manually.")
+            return
+        }
+        
     }
 
 }

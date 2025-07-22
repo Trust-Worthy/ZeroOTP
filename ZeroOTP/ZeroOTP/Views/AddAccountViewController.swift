@@ -15,27 +15,43 @@ class AddAccountViewController: UIViewController {
         
     }
     
+    // MARK: QR-code option
+    
     // This button allows the user to save a new OTP account entry
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        
+        // MARK: TO-DO
+        // Research "secret" type to practice processing of secure data
+        // Place where user enters the seed val / keep for the OTP algorithm
         guard let secret = secretTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !secret.isEmpty else {
             showAlert(message: "Please enter a valid secret key.")
             return
         }
         
+        // Check to ensure the secret is valid
+        // If it's not valid ask the user to try again
         guard isValidBase32(secret) else {
-            showAlert(message: "Invalid Base32 TOTP secret.")
+            showAlert(message: "Invalid Base32 TOTP secret. Please try again!")
             return
         }
         
         print("User Input is saved...")
+        
+        // After checks, store the secret is secure enclave
+        // MARK: TO-DO
     }
+    
+    // Text field where user enters in secret
     @IBOutlet weak var secretTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
        
     }
     
+    // MARK: Alerts
     func showAlert(message: String) {
         let alert = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
         
@@ -43,6 +59,9 @@ class AddAccountViewController: UIViewController {
         
         present(alert, animated: true)
     }
+    
+    // MARK: TO-DO
+    // Enventually put all of these error checking functions into the utils directory
     
     func isValidBase32(_ string: String) -> Bool {
         let base32Charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567="

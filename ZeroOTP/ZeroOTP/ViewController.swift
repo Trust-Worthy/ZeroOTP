@@ -7,8 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddAccountDelegate {
     
+    
+    func didAddAccount(_ account: OTPAccount) {
+        OTPAccounts.append(account)
+        accountTableView.reloadData()
+    }
+    
+    // MARK: Class properties
     // Tabel View to display the different OTP accounts user has
     @IBOutlet weak var accountTableView: UITableView!
     
@@ -45,6 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Take user to the add OTP view controller.
         if let addVC = storyboard.instantiateViewController(withIdentifier: "AddAccountViewController") as? AddAccountViewController {
             addVC.modalPresentationStyle = .automatic
+            addVC.delegate = self // ✅ Set delegate here
             self.present(addVC, animated: true)
         }
     }
@@ -55,12 +63,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OTPAccountCell", for: indexPath) as? OTPAccountCell else {
             fatalError("Could not dequeue OTPAccountCell")
         }
         
-        cell.accountLabel.text = ""
-        cell.otpLabel.text = ""
+        let account = OTPAccounts[indexPath.row]
+        
+        
+        cell.accountLabel.text = account.accountName
+        // MARK: TO-DO
+        // Generate the secret
+//        cell.otpLabel.text = generateOTP(from: account.secret) // You’ll implement this later
+        // MARK: TO-DO
+        // Make sure that account.secret can't be printed or displayed EVER
+        cell.otpLabel.text = account.secret
         
         return cell
     }

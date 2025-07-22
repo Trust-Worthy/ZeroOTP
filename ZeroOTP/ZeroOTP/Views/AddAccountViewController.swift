@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddAccountDelegate: AnyObject {
+    func didAddAccount(_ account: OTPAccount)
+}
+
 class AddAccountViewController: UIViewController {
     
     // This is the button that allows a user to cancel adding an OTP account
@@ -50,12 +54,19 @@ class AddAccountViewController: UIViewController {
         let newAccount = OTPAccount(accountName: accountName
                    , dateAdded: Date(),
                    secret: secret)
+        
+        // Send back to main controller
+        delegate?.didAddAccount(_account: newAccount)
+        dismiss(animated: true, completion: nil)
     }
     
+    
+    // MARK: Class properties
     // Text field where user enters in secret
     @IBOutlet weak var secretTextField: UITextField!
-    
     @IBOutlet weak var accountNameTextField: UITextField!
+    weak var delegate: AddAccountDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

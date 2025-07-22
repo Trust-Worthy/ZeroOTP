@@ -158,6 +158,25 @@ class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjects
         previewLayer.removeFromSuperlayer()
     }
     
-    
+    func processScannedOTPURL(_ urlString: String) {
+        
+        guard let url = URL(string: urlString),
+              url.scheme == "otpauth",
+              let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+              let queryItems = components.queryItems else {
+            showAlert(message: "Invalid OTP QR code!")
+            return
+        }
+        
+        let label = url.path.replacingOccurrences(of: "/", with: "")
+        accountNameTextField.text = label
+        
+        if let secretItem = queryItems.first(where: {$0.name.lowercased() == "secret"}),
+           let secret = secretItem.value {
+            secretTextField.text = secret
+        } else {
+            showAlert(message: "Could not find secret in QR code.")
+        }
+    }
 
 }

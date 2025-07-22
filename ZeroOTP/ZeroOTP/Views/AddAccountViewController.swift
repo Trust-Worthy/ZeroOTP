@@ -56,7 +56,7 @@ class AddAccountViewController: UIViewController {
                    secret: secret)
         
         // Send back to main controller
-        delegate?.didAddAccount(_account: newAccount)
+        delegate?.didAddAccount(newAccount)
         dismiss(animated: true, completion: nil)
     }
     

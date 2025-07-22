@@ -24,6 +24,7 @@ class AddAccountViewController: UIViewController {
             showAlert(message: "Please enter an Account name!")
             return
         }
+        print("Account name saved!")
         
         // MARK: TO-DO
         // Research "secret" type to practice processing of secure data

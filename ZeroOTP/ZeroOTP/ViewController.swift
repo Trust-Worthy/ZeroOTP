@@ -9,9 +9,10 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-
+    // Tabel View to display the different OTP accounts user has
     @IBOutlet weak var accountTableView: UITableView!
     
+    // OTP Account data that will be displayed in the table view
     var OTPAccounts: [OTPAccount] = []
     
     override func viewDidLoad() {

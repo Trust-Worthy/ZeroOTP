@@ -8,12 +8,14 @@
 import UIKit
 
 class AddAccountViewController: UIViewController {
-
+    
+    // This is the button that allows a user to cancel adding an OTP account
     @IBAction func cancelTapped(_ sender: UIButton) {
             dismiss(animated: true, completion: nil)
         
     }
     
+    // This button allows the user to save a new OTP account entry
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         guard let secret = secretTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !secret.isEmpty else {
             showAlert(message: "Please enter a valid secret key.")

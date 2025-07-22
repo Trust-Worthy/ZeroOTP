@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // OTP Account data that will be displayed in the table view
     var OTPAccounts: [OTPAccount] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +28,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             target: self,
             action: #selector(addAccountTapped))
         
-        accountTableView.register(OTPAccountCell.self, forCellReuseIdentifier: "OTPAccountCell")
         
         
         // Set datasource and delegate for the tableView

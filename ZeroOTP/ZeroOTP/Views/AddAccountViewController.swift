@@ -136,6 +136,28 @@ class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjects
             return
         }
         
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = view.layer.bounds
+        previewLayer.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(previewLayer)
+        
+        captureSession.startRunning()
+        
     }
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        
+        if let metadataObject = metadataObjects.first,
+           let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
+           let stringValue = readableObject.stringValue {
+            
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate)) // Vibration
+            processScannedOTPURL(stringValue)
+        }
+        
+        previewLayer.removeFromSuperlayer()
+    }
+    
+    
 
 }

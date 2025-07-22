@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         // Set title for the navigation bar
+        // MARK: TO-DO
+        // Why is this not changing the top title when the app first loads?
         self.title = "ZeroOTP"
         
         // Add a "+" button to the right of the nav bar
@@ -35,15 +37,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         accountTableView.dataSource = self
         
     }
+    
     // Call a method on this view controller when the button is tapped.”
     @objc func addAccountTapped() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        // Take user to the add OTP view controller.
         if let addVC = storyboard.instantiateViewController(withIdentifier: "AddAccountViewController") as? AddAccountViewController {
             addVC.modalPresentationStyle = .automatic
             self.present(addVC, animated: true)
         }
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return OTPAccounts.count

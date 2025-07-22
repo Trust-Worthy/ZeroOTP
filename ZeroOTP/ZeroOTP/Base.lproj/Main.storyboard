@@ -115,23 +115,35 @@
                                     <action selector="saveButtonTapped:" destination="dDr-5Y-zpY" eventType="touchUpInside" id="89e-za-2HT"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Account Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ae-5o-8d6">
+                                <rect key="frame" x="96" y="238" width="201" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4q1-KY-9Zn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zhN-pr-weH" firstAttribute="centerY" secondItem="JsU-1S-r2c" secondAttribute="centerY" id="0o5-Yb-McN"/>
+                            <constraint firstItem="zhN-pr-weH" firstAttribute="top" secondItem="4ae-5o-8d6" secondAttribute="bottom" constant="119.67" id="8Lu-YJ-5Jb"/>
                             <constraint firstItem="zhN-pr-weH" firstAttribute="centerX" secondItem="JsU-1S-r2c" secondAttribute="centerX" id="BRF-jK-6fI"/>
                             <constraint firstItem="kH4-8Z-8OY" firstAttribute="leading" secondItem="YRV-nV-C1l" secondAttribute="trailing" constant="224" id="F68-EC-5sZ"/>
+                            <constraint firstItem="4q1-KY-9Zn" firstAttribute="trailing" secondItem="zhN-pr-weH" secondAttribute="trailing" constant="97" id="HO2-yA-kBT"/>
+                            <constraint firstItem="4q1-KY-9Zn" firstAttribute="trailing" secondItem="4ae-5o-8d6" secondAttribute="trailing" constant="96" id="Ng7-6t-g7w"/>
+                            <constraint firstItem="4ae-5o-8d6" firstAttribute="leading" secondItem="4q1-KY-9Zn" secondAttribute="leading" constant="96" id="ZRG-Eq-KPC"/>
+                            <constraint firstItem="zhN-pr-weH" firstAttribute="leading" secondItem="4q1-KY-9Zn" secondAttribute="leading" constant="97" id="oZ1-0V-wtd"/>
                             <constraint firstItem="kH4-8Z-8OY" firstAttribute="leading" secondItem="YRV-nV-C1l" secondAttribute="trailing" constant="224" id="wLk-Y3-z2g"/>
+                            <constraint firstItem="4ae-5o-8d6" firstAttribute="centerX" secondItem="JsU-1S-r2c" secondAttribute="centerX" id="xxm-8N-Qrg"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accountNameTextField" destination="4ae-5o-8d6" id="Oop-pw-b7R"/>
                         <outlet property="secretTextField" destination="zhN-pr-weH" id="1bh-rz-e2U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tl-Bc-g4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="-27"/>
+            <point key="canvasLocation" x="1864.885496183206" y="-27.464788732394368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wWF-dX-Yep">

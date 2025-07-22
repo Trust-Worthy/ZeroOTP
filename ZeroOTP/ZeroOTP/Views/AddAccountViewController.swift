@@ -20,6 +20,11 @@ class AddAccountViewController: UIViewController {
     // This button allows the user to save a new OTP account entry
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         
+        guard let accountName = accountNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !accountName.isEmpty else {
+            showAlert(message: "Please enter an Account name!")
+            return
+        }
+        
         // MARK: TO-DO
         // Research "secret" type to practice processing of secure data
         // Place where user enters the seed val / keep for the OTP algorithm
@@ -44,6 +49,7 @@ class AddAccountViewController: UIViewController {
     // Text field where user enters in secret
     @IBOutlet weak var secretTextField: UITextField!
     
+    @IBOutlet weak var accountNameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

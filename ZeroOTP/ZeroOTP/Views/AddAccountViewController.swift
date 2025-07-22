@@ -45,6 +45,11 @@ class AddAccountViewController: UIViewController {
         
         // After checks, store the secret is secure enclave
         // MARK: TO-DO
+        
+        // Create the OTP account object
+        let newAccount = OTPAccount(accountName: accountName
+                   , dateAdded: Date(),
+                   secret: secret)
     }
     
     // Text field where user enters in secret

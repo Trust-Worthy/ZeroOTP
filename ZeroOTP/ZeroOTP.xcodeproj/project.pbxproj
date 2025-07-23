@@ -208,6 +208,9 @@
 			);
 			mainGroup = 671C6A2F2E29E9DB008081D4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				67858FE72E31680A00AFE799 /* XCRemoteSwiftPackageReference "OneTimePassword" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 671C6A392E29E9DB008081D4 /* Products */;
 			projectDirPath = "";
@@ -573,6 +576,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		67858FE72E31680A00AFE799 /* XCRemoteSwiftPackageReference "OneTimePassword" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattrubin/OneTimePassword.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 671C6A302E29E9DB008081D4 /* Project object */;
 }

@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6796DD322E3B039800A59055 /* SwiftOTP in Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD312E3B039800A59055 /* SwiftOTP */; };
+		6796DD342E3B039C00A59055 /* SwiftOTP-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD332E3B039C00A59055 /* SwiftOTP-Dynamic */; };
+		6796DD352E3B039C00A59055 /* SwiftOTP-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD332E3B039C00A59055 /* SwiftOTP-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6796DD382E3B03A400A59055 /* _CryptoExtras in Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD372E3B03A400A59055 /* _CryptoExtras */; };
+		6796DD3A2E3B03A800A59055 /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD392E3B03A800A59055 /* Crypto */; };
+		6796DD3C2E3B03AD00A59055 /* SamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD3B2E3B03AD00A59055 /* SamplePackage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		671C6A522E29E9DC008081D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -22,6 +31,20 @@
 			remoteInfo = ZeroOTP;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6796DD362E3B039C00A59055 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6796DD352E3B039C00A59055 /* SwiftOTP-Dynamic in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		671C6A382E29E9DB008081D4 /* ZeroOTP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeroOTP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +88,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6796DD342E3B039C00A59055 /* SwiftOTP-Dynamic in Frameworks */,
+				6796DD322E3B039800A59055 /* SwiftOTP in Frameworks */,
+				6796DD3C2E3B03AD00A59055 /* SamplePackage in Frameworks */,
+				6796DD382E3B03A400A59055 /* _CryptoExtras in Frameworks */,
+				6796DD3A2E3B03A800A59055 /* Crypto in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +119,7 @@
 				671C6A3A2E29E9DB008081D4 /* ZeroOTP */,
 				671C6A542E29E9DC008081D4 /* ZeroOTPTests */,
 				671C6A5E2E29E9DC008081D4 /* ZeroOTPUITests */,
+				6796DD302E3B039200A59055 /* Frameworks */,
 				671C6A392E29E9DB008081D4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +134,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6796DD302E3B039200A59055 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,6 +151,7 @@
 				671C6A342E29E9DB008081D4 /* Sources */,
 				671C6A352E29E9DB008081D4 /* Frameworks */,
 				671C6A362E29E9DB008081D4 /* Resources */,
+				6796DD362E3B039C00A59055 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,6 +162,11 @@
 			);
 			name = ZeroOTP;
 			packageProductDependencies = (
+				6796DD312E3B039800A59055 /* SwiftOTP */,
+				6796DD332E3B039C00A59055 /* SwiftOTP-Dynamic */,
+				6796DD372E3B03A400A59055 /* _CryptoExtras */,
+				6796DD392E3B03A800A59055 /* Crypto */,
+				6796DD3B2E3B03AD00A59055 /* SamplePackage */,
 			);
 			productName = ZeroOTP;
 			productReference = 671C6A382E29E9DB008081D4 /* ZeroOTP.app */;
@@ -406,6 +448,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -462,6 +505,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -605,6 +649,34 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6796DD312E3B039800A59055 /* SwiftOTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6712896C2E3AFDE4005BBF64 /* XCRemoteSwiftPackageReference "SwiftOTP" */;
+			productName = SwiftOTP;
+		};
+		6796DD332E3B039C00A59055 /* SwiftOTP-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6712896C2E3AFDE4005BBF64 /* XCRemoteSwiftPackageReference "SwiftOTP" */;
+			productName = "SwiftOTP-Dynamic";
+		};
+		6796DD372E3B03A400A59055 /* _CryptoExtras */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6712896B2E3AFDC3005BBF64 /* XCRemoteSwiftPackageReference "swift-crypto" */;
+			productName = _CryptoExtras;
+		};
+		6796DD392E3B03A800A59055 /* Crypto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6712896B2E3AFDC3005BBF64 /* XCRemoteSwiftPackageReference "swift-crypto" */;
+			productName = Crypto;
+		};
+		6796DD3B2E3B03AD00A59055 /* SamplePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6712896D2E3B014D005BBF64 /* XCRemoteSwiftPackageReference "SamplePackage" */;
+			productName = SamplePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 671C6A302E29E9DB008081D4 /* Project object */;
 }

@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import SwiftOTP
+import SamplePackage
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddAccountDelegate {
     
@@ -15,6 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         OTPAccounts.append(account)
         accountTableView.reloadData()
     }
+    
     
     // MARK: Class properties
     // Tabel View to display the different OTP accounts user has

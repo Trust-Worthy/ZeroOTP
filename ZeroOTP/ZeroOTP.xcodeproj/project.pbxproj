@@ -209,7 +209,9 @@
 			mainGroup = 671C6A2F2E29E9DB008081D4;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				67858FE72E31680A00AFE799 /* XCRemoteSwiftPackageReference "OneTimePassword" */,
+				6712896B2E3AFDC3005BBF64 /* XCRemoteSwiftPackageReference "swift-crypto" */,
+				6712896C2E3AFDE4005BBF64 /* XCRemoteSwiftPackageReference "SwiftOTP" */,
+				6712896D2E3B014D005BBF64 /* XCRemoteSwiftPackageReference "SamplePackage" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 671C6A392E29E9DB008081D4 /* Products */;
@@ -578,12 +580,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		67858FE72E31680A00AFE799 /* XCRemoteSwiftPackageReference "OneTimePassword" */ = {
+		6712896B2E3AFDC3005BBF64 /* XCRemoteSwiftPackageReference "swift-crypto" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mattrubin/OneTimePassword.git";
+			repositoryURL = "https://github.com/apple/swift-crypto.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.2.0;
+				minimumVersion = 3.13.3;
+			};
+		};
+		6712896C2E3AFDE4005BBF64 /* XCRemoteSwiftPackageReference "SwiftOTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lachlanbell/SwiftOTP";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
+		6712896D2E3B014D005BBF64 /* XCRemoteSwiftPackageReference "SamplePackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/SamplePackage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

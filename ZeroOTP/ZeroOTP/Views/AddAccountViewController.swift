@@ -2,7 +2,7 @@
 //  AddAccountViewController.swift
 //  ZeroOTP
 //
-//  Created by Jonathan Bateman on 7/17/25.
+//  Created by Trust-Worthy on 7/17/25.
 //
 
 import UIKit
@@ -13,7 +13,6 @@ protocol AddAccountDelegate: AnyObject {
 }
 
 class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate  {
-    
     // This is the button that allows a user to cancel adding an OTP account
     @IBAction func cancelTapped(_ sender: UIButton) {
             dismiss(animated: true, completion: nil)

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddAccountDelegate {
     
     
@@ -27,8 +28,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         // Set title for the navigation bar
-        // MARK: TO-DO
-        // Why is this not changing the top title when the app first loads?
         self.title = "ZeroOTP"
         
         // Add a "+" button to the right of the nav bar
@@ -43,7 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         accountTableView.delegate = self
         accountTableView.dataSource = self
         
-        
+    
         
     }
     

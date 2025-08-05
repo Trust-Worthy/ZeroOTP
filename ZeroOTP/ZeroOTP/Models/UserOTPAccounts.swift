@@ -18,6 +18,8 @@ struct UserOTPAccounts {
     
     static func saveAccount(otpAccount: OTPAccount) {
         
+        // encrypt account name and the date addeed?
+        // Maybe encrypt everything so that all the user data is encrypted.
         
         userAccounts.append(otpAccount)
         

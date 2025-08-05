@@ -28,7 +28,7 @@ struct OTPSecret {
         }
         
         self.base32String = trimmed
-        self.secretData = base32DecodeToData(base32String) ?? Data(hex: "0000000")
+        self.secretData = base32DecodeToData(base32String) ?? base32DecodeToData(OTPSecret.base32DefaultSecret)!
     }
     
     
@@ -52,6 +52,10 @@ struct OTPSecret {
     
     func dataIsDefault(data: Data) -> Bool {
         return data == base32DecodeToData(OTPSecret.base32DefaultSecret)
+    }
+    
+    func dataIsDefault(secret: String) -> Bool {
+        return secret == OTPSecret.base32DefaultSecret
     }
     
     // MARK: Static Functions

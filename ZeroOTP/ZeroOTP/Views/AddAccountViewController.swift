@@ -50,25 +50,31 @@ class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjects
         print("User Input is saved...")
         
         // Create OTPSecret object
-        let otpSecret = OTPSecret(secret)
+        guard secret == OTPSecret.base32DefaultSecret else {
+            showAlert(message: "OTP Secret Improperly Instantiated. Please try again!")
+            return
+        }
         
+        let otpSecret = OTPSecret(secret)
         // somewhere store all of the secrets and everything in keychain and
         // memory and secure enclave
         
         
         // Create new OTP Account
-        let newOTPAccount = OTPAccount(accountName: accountName, dateAdded: Date.now, otpSecret: otpSecret ?? OTPSecret.createDefaultOTPSecret())
-        if newOTPAccount.
+        let newOTPAccount = OTPAccount(accountName: accountName, dateAdded: Date.now, otpSecret: otpSecret ?? OTPSecret.createDefaultOTPSecret())! // force unwrapped here?
+ 
         // After checks, store the secret is secure enclave
         // MARK: TO-DO
         
        
         
         
-        // SAve the new OTP account
+        // SAve the new OTP account to the user account list
+        // MARK: TO-DO
+        // HOw do I make sure the newOTPAccount get's stored in User Defaults and loaded everytime?
         
         // Send back to main controller
-        delegate?.didAddAccount(newAccount)
+        delegate?.didAddAccount(newOTPAccount)
         dismiss(animated: true, completion: nil)
     }
     

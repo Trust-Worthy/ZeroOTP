@@ -10,28 +10,44 @@ import SwiftOTP
 
 
 
+extension OTPSecret: CustomStringConvertible, CustomDebugStringConvertible {
+    var description: String { "<Secret: hidden>" }
+    var debugDescription: String { "<Secret: hidden>"}
+}
+
 struct OTPSecret {
     
-    let base32String: String
+    private let base32String: String
     
-    var secretData: Data? {
-        if validate() {
-            return base32DecodeToData(base32String)
+    let secretData: Data
+    
+    init?(_ base32: String){
+        let trimmed = base32.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        guard OTPSecret.isValidBase32(trimmed) else {
+            return nil
         }
-    
-        return nil
+        
+        self.base32String = trimmed
+        self.secretData = base32DecodeToData(base32String) ?? Data(hex: "0000000")
     }
     
     
-    func validate() -> Bool {
-        // Only allow valid base32 or hex secrets
-        return !base32String.isEmpty && base32String.range(of: "^[A-Z2-7=]+$", options: .regularExpression) != nil
-    }
     
     // Create the Save secret to user dafaults
     
     
     // Create the get / retrieve function for all of the
     
+    // MARK: Instance Functions
+    func validate() -> Bool {
+            // Delegates to static function
+            OTPSecret.isValidBase32(base32String)
+        }
     
+    // MARK: Static Functions
+    private static func isValidBase32(_ string: String) -> Bool {
+        let base32Charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567="
+        return !string.isEmpty && string.allSatisfy { base32Charset.contains($0) }
+    }
 }

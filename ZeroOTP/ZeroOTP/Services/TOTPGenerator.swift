@@ -10,19 +10,17 @@ import UIKit
 
 struct TOTPGenerator {
     
-    let secret: OTPSecret
+    let OTPSecret: OTPSecret
     let digits: Int = 6
     let timeInterval: Int = 30
     let algorithm: OTPAlgorithm = .sha1
-
+    let totpObjecct: TOTP
     
-    // Computed property that returns a TOTP object with customized parameters.
-    // If all params aren't met for the constructor, a standard TOTP object is created with the default values.
-    var totpObject: TOTP? {
-        TOTP(secret: secret.secretData, digits: digits, timeInterval: timeInterval, algorithm: algorithm)
-        ?? TOTP(secret: secret.secretData)
-    }
+   
+    init?(_ data: Data) {
         
+    }
+   
     
     
     // Retrieve the current password based on the current time.
@@ -35,5 +33,7 @@ struct TOTPGenerator {
         
         return totp.generate(time: Date.now) ?? "000000"
     }
+    
+   
     
 }

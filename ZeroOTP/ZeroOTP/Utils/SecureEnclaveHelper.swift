@@ -41,5 +41,54 @@ enum SecureEnclaveHelper {
         return privateKey
     }
     
-    static func getSecureEn
+    static func getSecureEnclaveKey() -> SecKey? {
+        
+        
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassKey,
+            kSecAttrApplicationTag as String: keyTag,
+            kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
+            kSecReturnRef as String: true
+        ]
+        
+        var keyRef: CFTypeRef?
+        let status = SecItemCopyMatching(query as CFDictionary, &keyRef)
+        return (status == errSecSuccess) ? (keyRef as! SecKey): nil
+    }
+    
+    static func wrapKey(_ symmetricKey: SymmetricKey) -> Data? {
+        
+        guard let publicKey = SecKeyCopyPublicKey(getSecureEnclaveKey() ?? generateAndStoreSEcureEnclaveKey()! ) else {
+            return nil
+        }
+        
+        let keyData = symmetricKey.withUnsafeBytes {Data($0) }
+        
+        var error: Unmanaged<CFError>?
+        
+        guard let encrypted = SecKeyCreateEncryptedData(publicKey,
+                                                        .eciesEncryptionCofactorVariableIVX963SHA256AESGCM,
+                                                        keyData as CFData,
+                                                        &error) else {
+            print("Key Wrapping Failed:", error!.takeRetainedValue())
+            return nil
+        }
+        return encrypted as Data
+    }
+    
+    static func unwrapKey(_ wrappedKey: Data) -> SymmetricKey? {
+        guard let privateKey = getSecureEnclaveKey() else {return nil}
+        
+        var error: Unmanaged<CFError>?
+        
+        guard let decrypted = SecKeyCreateDecryptedData(privateKey,
+                                                        .eciesEncryptionCofactorVariableIVX963SHA256AESGCM,
+                                                        wrappedKey as CFData,
+                                                        &error) else {
+            print("Key Unwrapping Failed:", error!.takeRetainedValue())
+            return nil
+        }
+        
+        return SymmetricKey(data: decrypted as Data)
+    }
 }

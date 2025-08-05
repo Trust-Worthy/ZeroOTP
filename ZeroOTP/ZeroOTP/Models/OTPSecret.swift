@@ -17,7 +17,7 @@ extension OTPSecret: CustomStringConvertible, CustomDebugStringConvertible {
 struct OTPSecret {
     
     private let base32String: String
-    
+    static let base32DefaultSecret = "JBSWY3DPEHPK3PXP"
     let secretData: Data
     
     init?(_ base32: String){
@@ -32,10 +32,12 @@ struct OTPSecret {
     }
     
     
-    init(_ data: Data) {
-        
-    }
     
+//    
+//    init(_ data: Data) {
+//        
+//    }
+//    
     
     // Create the Save secret to user dafaults
     
@@ -48,12 +50,21 @@ struct OTPSecret {
             OTPSecret.isValidBase32(base32String)
         }
     
+    func dataIsDefault(data: Data) -> Bool {
+        return data == base32DecodeToData(OTPSecret.base32DefaultSecret)
+    }
+    
     // MARK: Static Functions
     private static func isValidBase32(_ string: String) -> Bool {
         let base32Charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567="
         return !string.isEmpty && string.allSatisfy { base32Charset.contains($0) }
     }
+    
+    static func createDefaultOTPSecret() -> OTPSecret{
+       
+        return OTPSecret(base32DefaultSecret)!
+    }
 }
 
 
-}
+

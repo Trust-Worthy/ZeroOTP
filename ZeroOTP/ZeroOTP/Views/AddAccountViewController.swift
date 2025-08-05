@@ -49,15 +49,20 @@ class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjects
         
         print("User Input is saved...")
         
+        // Create OTPSecret object
+        let otpSecret = OTPSecret(secret)
+        
+        // somewhere store all of the secrets and everything in keychain and
+        // memory and secure enclave
+        
+        
+        // Create new OTP Account
+        let newOTPAccount = OTPAccount(accountName: accountName, dateAdded: Date.now, otpSecret: otpSecret ?? OTPSecret.createDefaultOTPSecret())
+        if newOTPAccount.
         // After checks, store the secret is secure enclave
         // MARK: TO-DO
         
-        
-        // Create the OTP account object
-        let newAccount = OTPAccount(accountName: accountName
-                   , dateAdded: Date(),
-                   secret: secret)
-        
+       
         
         
         // SAve the new OTP account

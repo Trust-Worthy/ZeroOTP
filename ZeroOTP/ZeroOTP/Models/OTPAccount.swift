@@ -14,9 +14,15 @@ struct OTPAccount {
     let codeGenerator: TOTPGenerator
     
     
-    init(accountName: String, dateAdded: Date, codeGenerator: TOTPGenerator) {
+    init?(accountName: String, dateAdded: Date, otpSecret: OTPSecret) {
         self.accountName = accountName
         self.dateAdded = dateAdded
-        self.codeGenerator = codeGenerator
+        
+    
+        guard let generator = TOTPGenerator(otpSecret) else {
+            return nil
+        }
+        
+        self.codeGenerator = generator
     }
 }

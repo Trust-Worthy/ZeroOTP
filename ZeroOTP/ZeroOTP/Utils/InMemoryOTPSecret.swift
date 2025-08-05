@@ -11,12 +11,12 @@ import CryptoKit
 
 class InMemoryOTPSecret {
     
-    private let key = SymmetricKey(size: .bits256)
     private var encryptedOTPSecret: Data // Still in binary form
-    
+    private var wrappedSymmetricKey: Data
     
 
     init?(otpSecret: String) {
+        
         // takes a plain String secret
         // converts it into Data
         guard let secretData = otpSecret.data(using: .utf8) else {
@@ -24,14 +24,24 @@ class InMemoryOTPSecret {
             return nil
         }
         
+        let symmetricKey = SymmetricKey(size: .bits256)
+        
         do {
             // encrypts data using AES-GCM
             // sealedBox contains the ciphertext, nonce, and tag (authenticator)
-            let sealedBox = try AES.GCM.seal(secretData, using: key)
+            let sealedBox = try AES.GCM.seal(secretData, using: symmetricKey)
             
             // .combined gives me a binary blob of ciphertext, none, and tag
             guard let combined = sealedBox.combined else {return nil}
             self.encryptedOTPSecret = combined
+            
+            guard let wrapped = SecureEnclaveHelper.wrapKey(symmetricKey) else {return nil}
+            self.wrappedSymmetricKey = wrapped
+            
+            // Save the encryptedOTPSecret & the wrapped SymmetricKey
+            UserDefaults.standard.set(encryptedOTPSecret, forKey: "otp_secret")
+            UserDefaults.standard.set(wrappedSymmetricKey, forKey: "wrapped_key")
+            
         } catch {
             return nil
         }
@@ -49,6 +59,8 @@ class InMemoryOTPSecret {
             return nil
         }
     }
+    
+    
 
 
 

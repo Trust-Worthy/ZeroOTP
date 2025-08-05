@@ -10,7 +10,7 @@ import UIKit
 
 struct TOTPGenerator {
     
-    let secret: Data
+    let secret: OTPSecret
     let digits: Int = 6
     let timeInterval: Int = 30
     let algorithm: OTPAlgorithm = .sha1
@@ -19,7 +19,8 @@ struct TOTPGenerator {
     // Computed property that returns a TOTP object with customized parameters.
     // If all params aren't met for the constructor, a standard TOTP object is created with the default values.
     var totpObject: TOTP? {
-        TOTP(secret: secret, digits: digits, timeInterval: timeInterval, algorithm: algorithm) ?? TOTP(secret: secret)
+        TOTP(secret: secret.secretData, digits: digits, timeInterval: timeInterval, algorithm: algorithm)
+        ?? TOTP(secret: secret.secretData)
     }
         
     

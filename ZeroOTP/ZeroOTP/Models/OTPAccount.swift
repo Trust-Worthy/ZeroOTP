@@ -11,8 +11,15 @@ struct OTPAccount {
     
     let accountName: String
     let dateAdded: Date
+    let base32String: String
     
-    // MARK: TO-DO
-    // Create Secret Type
-    let secret: String // Base32-encoded string
+    var secret: OTPSecret? {
+        let secret = OTPSecret(base32String: base32String)
+        
+        if secret.validate() {
+            return secret
+        }
+        
+        return nil
+    }
 }

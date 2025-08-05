@@ -13,6 +13,8 @@ protocol AddAccountDelegate: AnyObject {
 }
 
 class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate  {
+    
+    
     // This is the button that allows a user to cancel adding an OTP account
     @IBAction func cancelTapped(_ sender: UIButton) {
             dismiss(animated: true, completion: nil)
@@ -55,6 +57,8 @@ class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjects
         let newAccount = OTPAccount(accountName: accountName
                    , dateAdded: Date(),
                    secret: secret)
+        
+        // SAve the new OTP account
         
         // Send back to main controller
         delegate?.didAddAccount(newAccount)

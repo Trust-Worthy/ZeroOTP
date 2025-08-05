@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftOTP
+import CryptoKit
 
 // MARK: - Prevent Secret Exposure in Logs / Prints
 extension OTPSecret: CustomStringConvertible, CustomDebugStringConvertible {
@@ -14,6 +15,12 @@ extension OTPSecret: CustomStringConvertible, CustomDebugStringConvertible {
     
     var description: String { "<Secret: hidden>" }
     var debugDescription: String { "<Secret: hidden>"}
+}
+
+extension OTPSecret {
+    var symmetricKey: SymmetricKey {
+        SymmetricKey(data: secretData)
+    }
 }
 
 // MARK: - OTPSecret Struct: Represents a TOTP secret securely

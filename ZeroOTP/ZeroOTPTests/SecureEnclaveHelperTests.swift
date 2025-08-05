@@ -56,4 +56,44 @@ final class SecureEnclaveHelperTests: XCTestCase {
         
         XCTAssertNotNil(result, "Key should be regenerated and wrap should succeed")
     }
+    
+    func testAESEncryptDecryptRoundTrip() throws {
+           let plainText = "Test data for AES encryption"
+           let key = SymmetricKey(size: .bits256)
+           let data = plainText.data(using: .utf8)!
+           
+        let encrypted = try AESUtility.encrypt(data, using: key)
+           XCTAssertNotEqual(encrypted, data, "Encrypted data should differ from plain data")
+           
+        let decrypted = try AESUtility.decrypt(encrypted, using: key)
+           XCTAssertEqual(decrypted, data, "Decrypted data should match original")
+       }
+       
+       func testSecureEnclaveKeyWrapUnwrap() {
+           // Generate a symmetric key to wrap
+           let symmetricKey = SymmetricKey(size: .bits256)
+           
+           // Generate or get Secure Enclave key
+           guard let seKey = SecureEnclaveHelper.getSecureEnclaveKey() ?? SecureEnclaveHelper.generateAndStoreSecureEnclaveKey() else {
+               XCTFail("Failed to get or generate Secure Enclave key")
+               return
+           }
+           
+           // Wrap the symmetric key
+           guard let wrappedData = SecureEnclaveHelper.wrapKey(symmetricKey) else {
+               XCTFail("Failed to wrap symmetric key")
+               return
+           }
+           
+           // Unwrap the symmetric key
+           guard let unwrappedKey = SecureEnclaveHelper.unwrapKey(wrappedData) else {
+               XCTFail("Failed to unwrap symmetric key")
+               return
+           }
+           
+           // The unwrapped key data should equal the original key data
+           XCTAssertEqual(symmetricKey.withUnsafeBytes { Data($0) },
+                          unwrappedKey.withUnsafeBytes { Data($0) },
+                          "Unwrapped key should match original symmetric key")
+       }
 }

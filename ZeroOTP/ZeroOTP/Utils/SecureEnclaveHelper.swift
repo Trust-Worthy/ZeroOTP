@@ -58,36 +58,43 @@ enum SecureEnclaveHelper {
     }
         
     
+    /// Wraps the given symmetric key using the public EC key from the Secure Enclave
     static func wrapKey(_ symmetricKey: SymmetricKey) -> Data? {
-        
-        guard let publicKey = SecKeyCopyPublicKey(getSecureEnclaveKey() ?? generateAndStoreSEcureEnclaveKey()! ) else {
+        // Ensure a Secure Enclave key exists
+        guard let key = getSecureEnclaveKey() ?? generateAndStoreSecureEnclaveKey(),
+              let publicKey = SecKeyCopyPublicKey(key) else {
+            print("Missing Secure Enclave key")
             return nil
         }
         
-        let keyData = symmetricKey.withUnsafeBytes {Data($0) }
+        let keyData = symmetricKey.withUnsafeBytes { Data($0) }
         
         var error: Unmanaged<CFError>?
-        
         guard let encrypted = SecKeyCreateEncryptedData(publicKey,
                                                         .eciesEncryptionCofactorVariableIVX963SHA256AESGCM,
                                                         keyData as CFData,
                                                         &error) else {
-            print("Key Wrapping Failed:", error!.takeRetainedValue())
+            print("Key Wrapping Failed:", error?.takeRetainedValue().localizedDescription ?? "Unknown error")
             return nil
         }
+        
         return encrypted as Data
     }
     
+    
+    // Unwraps previously encrypted symmetric key using Secure Enclave private key
     static func unwrapKey(_ wrappedKey: Data) -> SymmetricKey? {
-        guard let privateKey = getSecureEnclaveKey() else {return nil}
+        guard let privateKey = getSecureEnclaveKey() else {
+            print("Missing Secure Enclave private key")
+            return nil
+        }
         
         var error: Unmanaged<CFError>?
-        
         guard let decrypted = SecKeyCreateDecryptedData(privateKey,
                                                         .eciesEncryptionCofactorVariableIVX963SHA256AESGCM,
                                                         wrappedKey as CFData,
                                                         &error) else {
-            print("Key Unwrapping Failed:", error!.takeRetainedValue())
+            print("Key Unwrapping Failed:", error?.takeRetainedValue().localizedDescription ?? "Unknown error")
             return nil
         }
         

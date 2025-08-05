@@ -11,18 +11,30 @@ struct OTPAccount {
     
     let accountName: String
     let dateAdded: Date
-    let codeGenerator: TOTPGenerator
+    private(set) var codeGenerator: TOTPGenerator?
     
-    
-    init?(accountName: String, dateAdded: Date, otpSecret: OTPSecret) {
+    init(accountName: String, dateAdded: Date) {
         self.accountName = accountName
         self.dateAdded = dateAdded
-        
+        self.codeGenerator = nil
+    }
     
-        guard let generator = TOTPGenerator(secret: otpSecret) else {
-            return nil
+    /// Fetches secret from SecureOTPStore and reinitializes generator
+    mutating func unlockGenerator(completion: @escaping (Bool) -> Void) {
+        SecureOTPStore.shared.unlockSecret(for: accountName) { secret in
+            if let secret = secret {
+                self.codeGenerator = TOTPGenerator(secret: secret)
+                completion(true)
+            } else {
+                completion(false)
+            }
         }
         
-        self.codeGenerator = generator
+        
+    }
+    
+    /// Optional shortcut to get current code
+    func currentOTPCode() -> String? {
+        return codeGenerator?.generateCurrentCode()
     }
 }

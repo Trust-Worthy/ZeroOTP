@@ -7,8 +7,6 @@
 
 import UIKit
 import SwiftOTP
-import Foundation
-import Security
 
 
 extension OTPSecret: CustomStringConvertible, CustomDebugStringConvertible {
@@ -51,4 +49,7 @@ struct OTPSecret {
         let base32Charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567="
         return !string.isEmpty && string.allSatisfy { base32Charset.contains($0) }
     }
+}
+
+
 }

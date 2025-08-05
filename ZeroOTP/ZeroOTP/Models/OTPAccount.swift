@@ -19,7 +19,7 @@ struct OTPAccount {
         self.dateAdded = dateAdded
         
     
-        guard let generator = TOTPGenerator(otpSecret) else {
+        guard let generator = TOTPGenerator(secret: otpSecret) else {
             return nil
         }
         

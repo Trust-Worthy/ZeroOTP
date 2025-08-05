@@ -12,14 +12,17 @@ import CryptoKit
 enum SecureEnclaveHelper {
     static let keyTag = "com.zerootp.symmetrickey"
     
-    static func generateAndStoreSEcureEnclaveKey() -> SecKey? {
-        
-        let access = SecAccessControlCreateWithFlags(nil,
-                                                     kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
-                                                     [.privateKeyUsage, .biometryCurrentSet], nil)!
+    // Generates and stores a new EC private key in the Secure Enclave
+    static func generateAndStoreSecureEnclaveKey() -> SecKey? {
+        guard let access = SecAccessControlCreateWithFlags(nil,
+                                                           kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
+                                                           [.privateKeyUsage, .biometryCurrentSet],
+                                                           nil) else {
+            print("Failed to create access control")
+            return nil
+        }
         
         let attributes: [String: Any] = [
-            
             kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
             kSecAttrKeySizeInBits as String: 256,
             kSecAttrTokenID as String: kSecAttrTokenIDSecureEnclave,
@@ -32,18 +35,16 @@ enum SecureEnclaveHelper {
         ]
         
         var error: Unmanaged<CFError>?
-        
         guard let privateKey = SecKeyCreateRandomKey(attributes as CFDictionary, &error) else {
-            print("Secure Enclave Key Generation Failed:", error!.takeRetainedValue())
+            print("Secure Enclave Key Generation Failed:", error?.takeRetainedValue().localizedDescription ?? "Unknown error")
             return nil
         }
         
         return privateKey
     }
     
+    /// Fetches the previously stored Secure Enclave private key
     static func getSecureEnclaveKey() -> SecKey? {
-        
-        
         let query: [String: Any] = [
             kSecClass as String: kSecClassKey,
             kSecAttrApplicationTag as String: keyTag,
@@ -53,8 +54,9 @@ enum SecureEnclaveHelper {
         
         var keyRef: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &keyRef)
-        return (status == errSecSuccess) ? (keyRef as! SecKey): nil
+        return status == errSecSuccess ? (keyRef as! SecKey) : nil
     }
+        
     
     static func wrapKey(_ symmetricKey: SymmetricKey) -> Data? {
         

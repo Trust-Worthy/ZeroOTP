@@ -32,6 +32,10 @@ struct OTPSecret {
     }
     
     
+    init(_ data: Data) {
+        
+    }
+    
     
     // Create the Save secret to user dafaults
     

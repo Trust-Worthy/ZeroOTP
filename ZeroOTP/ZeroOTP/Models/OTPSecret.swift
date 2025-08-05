@@ -48,32 +48,28 @@ struct OTPSecret {
         self.secretData = decodedData
     }
     
-    
-    
-    // MARK: Instance Functions
-    func validate() -> Bool {
-            // Delegates to static function
-            OTPSecret.isValidBase32(base32String)
-        }
-    
-    func dataIsDefault(data: Data) -> Bool {
-        return data == base32DecodeToData(OTPSecret.base32DefaultSecret)
+    /// Provide secret data securely when needed
+    /// The plaintext secret should be handled carefully and cleared ASAP by the caller
+    func getSecretData() -> Data {
+            return secretData
     }
-    
-    func dataIsDefault(secret: String) -> Bool {
-        return secret == OTPSecret.base32DefaultSecret
+        
+    // Instance method for validation
+    func isValid() -> Bool {
+        OTPSecret.isValidBase32(base32String)
     }
+
+    // MARK: Static Helper Functions
     
-    // MARK: Static Functions
-    private static func isValidBase32(_ string: String) -> Bool {
+    /// Validate Base32 string format - ensures only valid chars and non-empty
+    static func isValidBase32(_ string: String) -> Bool {
         let base32Charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567="
+        
+        // Base32 charset includes A-Z, 2-7 and optional padding '='
         return !string.isEmpty && string.allSatisfy { base32Charset.contains($0) }
     }
     
-    static func createDefaultOTPSecret() -> OTPSecret{
-       
-        return OTPSecret(base32DefaultSecret)!
-    }
+    
 }
 
 

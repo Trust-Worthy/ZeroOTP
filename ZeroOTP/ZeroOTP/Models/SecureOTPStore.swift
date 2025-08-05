@@ -37,12 +37,12 @@ final class SecureOTPStore {
         BiometricHelper.authenticate(reason: "Authenticate to reveal OTP") { [weak self] success, _ in
             guard success,
                   let wrapped = KeychainHelper.loadWrappedKey(forKey: storeKey),
-                  let symmetricKey = SecureEnclaveHelper.unwrapKey(wrapped) else {
+                  let symmetricKey = SecureEnclaveHelper.unwrapKey(wrapped),
+                  let secret = OTPSecret(symmetricKey: symmetricKey) else {
                 completion(nil)
                 return
             }
 
-            let secret = OTPSecret(symmetricKey: symmetricKey)
             self?.cacheSecret(secret, forKey: accountName)
             completion(secret)
         }
@@ -70,3 +70,4 @@ final class SecureOTPStore {
         timer = nil
     }
 }
+

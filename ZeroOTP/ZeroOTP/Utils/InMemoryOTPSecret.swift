@@ -47,21 +47,50 @@ class InMemoryOTPSecret {
         }
     }
     
-    func revealOTPSecret() -> String? {
-        do {
-            // Reconstructs the sealed box from encrypted blob
-            let sealedBox = try AES.GCM.SealedBox(combined: encryptedOTPSecret)
-            let decryptedData: Data = try AES.GCM.open(sealedBox, using: key)
-            
-            // converts decrypted bytes back into a String
-            return String(data: decryptedData, encoding: .utf8)
-        } catch {
-            return nil
-        }
-    }
+//    func revealOTPSecret() -> String? {
+//        do {
+//            // Reconstructs the sealed box from encrypted blob
+//            let sealedBox = try AES.GCM.SealedBox(combined: encryptedOTPSecret)
+//            let decryptedData: Data = try AES.GCM.open(sealedBox, using: key)
+//            
+//            // converts decrypted bytes back into a String
+//            return String(data: decryptedData, encoding: .utf8)
+//        } catch {
+//            return nil
+//        }
+//    }
     
     static func loadSecret(completion: @escaping (String?) -> Void) {
-        
+        BiometricHelper.authenticate("Access your OTP secret") { success, _ in
+            guard success else {
+                completion(nil)
+                return
+            }
+            
+            guard
+                let wrappedKey = UserDefaults.standard.data(forKey: "wrapped_key"),
+                let encrypted = UserDefaults.standard.data(forKey: "otp_secret"),
+                let symmetricKey = SecureEnclaveHelper.unwrapKey(wrappedKey)
+            else {
+                completion(nil)
+                return
+            }
+            
+            do {
+                let sealedBox = try AES.GCM.SealedBox(combined: encrypted)
+                let decrypted = try AES.GCM.open(sealedBox, using: symmetricKey)
+                
+                // MARK: Secret is exposed in plaintext
+                // Be careful! No printing
+                // MARK: TO-DO: protect the secret here somehow
+                
+                let otpSecret = String(data: decrypted, encoding: .utf8)
+                completion(otpSecret)
+            } catch {
+                completion(nil)
+            }
+            
+        }
         
     }
 

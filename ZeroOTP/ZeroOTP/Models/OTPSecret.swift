@@ -8,41 +8,47 @@
 import UIKit
 import SwiftOTP
 
-
+// MARK: - Prevent Secret Exposure in Logs / Prints
 extension OTPSecret: CustomStringConvertible, CustomDebugStringConvertible {
+    
+    
     var description: String { "<Secret: hidden>" }
     var debugDescription: String { "<Secret: hidden>"}
 }
 
+// MARK: - OTPSecret Struct: Represents a TOTP secret securely
+
 struct OTPSecret {
     
+    // Store Base32 string privately, avoid public exposure
     private let base32String: String
-    static let base32DefaultSecret = "JBSWY3DPEHPK3PXP"
-    let secretData: Data
     
+    
+    // Store decoded secret data privately
+    private let secretData: Data
+    
+    /// Initialize with a Base32 encoded secret string
+    /// - Returns nil if input is invalid base32 or decoding fails
     init?(_ base32: String){
+        
+        // Trim whitespace, newlines and normalize to uppercase (Base32 standard)
         let trimmed = base32.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
+        // Validate Base32 string to ensure only valid chars
         guard OTPSecret.isValidBase32(trimmed) else {
             return nil
         }
         
+        // Decide base32 to Data securely
+        guard let decodedData = base32DecodeToData(trimmed) else {
+            return nil
+        }
+        
         self.base32String = trimmed
-        self.secretData = base32DecodeToData(base32String) ?? base32DecodeToData(OTPSecret.base32DefaultSecret)!
+        self.secretData = decodedData
     }
     
     
-    
-//    
-//    init(_ data: Data) {
-//        
-//    }
-//    
-    
-    // Create the Save secret to user dafaults
-    
-    
-    // Create the get / retrieve function for all of the
     
     // MARK: Instance Functions
     func validate() -> Bool {

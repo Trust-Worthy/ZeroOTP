@@ -23,6 +23,23 @@ extension OTPSecret {
     }
 }
 
+extension OTPSecret {
+    init?(symmetricKey: SymmetricKey) {
+        let keyData = symmetricKey.withUnsafeBytes { Data($0) }
+        let base32String = base32Encode(keyData)
+        
+        self.init(base32String)
+    }
+}
+
+extension OTPSecret {
+    init?(secretData: Data) {
+        let base32String = base32Encode(secretData)
+        self.init(base32String)
+    }
+}
+
+
 // MARK: - OTPSecret Struct: Represents a TOTP secret securely
 
 struct OTPSecret {

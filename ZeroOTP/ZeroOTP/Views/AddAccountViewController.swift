@@ -58,6 +58,8 @@ class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjects
                    , dateAdded: Date(),
                    secret: secret)
         
+        
+        
         // SAve the new OTP account
         
         // Send back to main controller

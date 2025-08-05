@@ -11,15 +11,12 @@ struct OTPAccount {
     
     let accountName: String
     let dateAdded: Date
-    let base32String: String
+    let codeGenerator: TOTPGenerator
     
-    var secret: OTPSecret? {
-        let secret = OTPSecret(base32String: base32String)
-        
-        if secret.validate() {
-            return secret
-        }
-        
-        return nil
+    
+    init(accountName: String, dateAdded: Date, codeGenerator: TOTPGenerator) {
+        self.accountName = accountName
+        self.dateAdded = dateAdded
+        self.codeGenerator = codeGenerator
     }
 }

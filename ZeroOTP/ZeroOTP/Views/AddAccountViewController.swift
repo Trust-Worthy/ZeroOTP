@@ -50,6 +50,7 @@ class AddAccountViewController: UIViewController, AVCaptureMetadataOutputObjects
         // After checks, store the secret is secure enclave
         // MARK: TO-DO
         
+        
         // Create the OTP account object
         let newAccount = OTPAccount(accountName: accountName
                    , dateAdded: Date(),

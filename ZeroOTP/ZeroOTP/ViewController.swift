@@ -43,8 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Set datasource and delegate for the tableView
         accountTableView.delegate = self
         accountTableView.dataSource = self
-        
-    
+
         
     }
     

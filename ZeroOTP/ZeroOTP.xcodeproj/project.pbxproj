@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6796DD322E3B039800A59055 /* SwiftOTP in Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD312E3B039800A59055 /* SwiftOTP */; };
-		6796DD342E3B039C00A59055 /* SwiftOTP-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD332E3B039C00A59055 /* SwiftOTP-Dynamic */; };
-		6796DD352E3B039C00A59055 /* SwiftOTP-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD332E3B039C00A59055 /* SwiftOTP-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		6796DD382E3B03A400A59055 /* _CryptoExtras in Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD372E3B03A400A59055 /* _CryptoExtras */; };
 		6796DD3A2E3B03A800A59055 /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD392E3B03A800A59055 /* Crypto */; };
 		6796DD3C2E3B03AD00A59055 /* SamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 6796DD3B2E3B03AD00A59055 /* SamplePackage */; };
@@ -39,7 +37,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6796DD352E3B039C00A59055 /* SwiftOTP-Dynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6796DD342E3B039C00A59055 /* SwiftOTP-Dynamic in Frameworks */,
 				6796DD322E3B039800A59055 /* SwiftOTP in Frameworks */,
 				6796DD3C2E3B03AD00A59055 /* SamplePackage in Frameworks */,
 				6796DD382E3B03A400A59055 /* _CryptoExtras in Frameworks */,
@@ -163,7 +159,6 @@
 			name = ZeroOTP;
 			packageProductDependencies = (
 				6796DD312E3B039800A59055 /* SwiftOTP */,
-				6796DD332E3B039C00A59055 /* SwiftOTP-Dynamic */,
 				6796DD372E3B03A400A59055 /* _CryptoExtras */,
 				6796DD392E3B03A800A59055 /* Crypto */,
 				6796DD3B2E3B03AD00A59055 /* SamplePackage */,
@@ -655,11 +650,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6712896C2E3AFDE4005BBF64 /* XCRemoteSwiftPackageReference "SwiftOTP" */;
 			productName = SwiftOTP;
-		};
-		6796DD332E3B039C00A59055 /* SwiftOTP-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6712896C2E3AFDE4005BBF64 /* XCRemoteSwiftPackageReference "SwiftOTP" */;
-			productName = "SwiftOTP-Dynamic";
 		};
 		6796DD372E3B03A400A59055 /* _CryptoExtras */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -7,7 +7,8 @@
 
 import UIKit
 import SwiftOTP
-
+import Foundation
+import Security
 
 
 extension OTPSecret: CustomStringConvertible, CustomDebugStringConvertible {

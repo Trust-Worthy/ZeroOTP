@@ -8,17 +8,24 @@
 import SwiftOTP
 import UIKit
 
+
+
 struct TOTPGenerator {
     
     let OTPSecret: OTPSecret
-    let digits: Int = 6
-    let timeInterval: Int = 30
-    let algorithm: OTPAlgorithm = .sha1
+    let digits: Int
+    let timeInterval: Int
+    let algorithm: OTPAlgorithm
     let totpObjecct: TOTP
     
    
-    init?(_ data: Data) {
+    init?(_ secret: OTPSecret, digits: Int = 6, timeInterval: Int = 30, algorithm: OTPAlgorithm = .sha256) {
         
+        guard let secret else {
+            
+        }
+        
+        self.totpObjecct = TOTP(secret: OTPSecret.secretData, digits: digits,timeInterval: timeInterval, algorithm: algorithm)
     }
    
     

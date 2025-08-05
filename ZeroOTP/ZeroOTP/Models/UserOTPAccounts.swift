@@ -5,35 +5,14 @@
 //  Created by Trust-Worthy on 8/5/25.
 //
 
-
+import Foundation
+import Security
 
 struct UserOTPAccounts {
     
-    static var userAccounts: [OTPAccount = <#initializer#>]
-    
-    
     static func getUserAccounts() -> [OTPAccount] {
-        return userAccounts
-    }
-    
-    static func saveAccount(otpAccount: OTPAccount) {
-        
-        // encrypt account name and the date addeed?
-        // Maybe encrypt everything so that all the user data is encrypted.
-        
-        userAccounts.append(otpAccount)
-        
-    }
-    
-    static func deleteAccount() {
-        
-    }
-    
-    func editAccountName() {
-        return
-    }
-    
-    func generateNewOTPSecret(){
-        return
+        guard let storageKey = SecureStorageKeyManager.getOrCreateStorageKey(),
+              let encryptedData = UserDefaults.standard.data(forKey: storageKey),
+              let aesKey = AESKeyManager
     }
 }

@@ -9,14 +9,10 @@ import UIKit
 import SwiftOTP
 import SamplePackage
 
-class ViewController: UIViewController, UITableViewDelegate, AddAccountDelegate {
+class ViewController: UIViewController{
     
     
-    func didAddAccount(_ account: OTPAccount) {
-        OTPAccounts.append(account)
-        accountTableView.reloadData()
-    }
-    
+  
     
     // MARK: Class properties
     // Tabel View to display the different OTP accounts user has
@@ -43,7 +39,9 @@ class ViewController: UIViewController, UITableViewDelegate, AddAccountDelegate 
         // Set datasource and delegate for the tableView
         accountTableView.delegate = self
         accountTableView.dataSource = self
-
+        
+        // Refresh / fetch
+        refreshOTPAccounts()
         
     }
     
@@ -71,7 +69,13 @@ class ViewController: UIViewController, UITableViewDelegate, AddAccountDelegate 
     
     private func refreshOTPAccounts() {
         
-        var accounts = OTPAccount.retrieveAccounts(forAccountKey: OTPAccount.)
+   
+        // In previous projects, this is where I would call an API
+        // In ZeroOTP, I'm getting data from secure storage
+        self.OTPAccounts = OTPAccount.retrieveOTPAccounts(forAccountKey: OTPAccount.otpAccountsKey)
+        
+        // Reload the table view with the OTP data
+        self.accountTableView.reloadData()
     }
     
     // MARK: TO-DO
@@ -79,6 +83,18 @@ class ViewController: UIViewController, UITableViewDelegate, AddAccountDelegate 
     // to their device
 
 }
+
+// MARK: - Delegates
+extension ViewController: UITableViewDelegate ,AddAccountDelegate{
+  
+    func didAddAccount(_ account: OTPAccount) {
+        OTPAccounts.append(account)
+        
+        // Added the self
+        self.accountTableView.reloadData()
+    }
+}
+
 
 
 // MARK: - Table View Data Source Methods
@@ -99,15 +115,18 @@ extension ViewController: UITableViewDataSource {
         
         
         cell.accountLabel.text = account.accountName
+       
+        
+        cell.otpLabel.text = account.currentOTPCode()
+        print(account.currentOTPCode()!)
+        return cell
+        
+        
         // MARK: TO-DO
         // Generate the secret
 //        cell.otpLabel.text = generateOTP(from: account.secret) // You’ll implement this later
         // MARK: TO-DO
         // Make sure that account.secret can't be printed or displayed EVER
-        
-        cell.otpLabel.text = account.currentOTPCode()
-        print(account.currentOTPCode()!)
-        return cell
     }
     
 }

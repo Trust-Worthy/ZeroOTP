@@ -9,7 +9,7 @@ import UIKit
 import SwiftOTP
 import SamplePackage
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddAccountDelegate {
+class ViewController: UIViewController, UITableViewDelegate, AddAccountDelegate {
     
     
     func didAddAccount(_ account: OTPAccount) {
@@ -47,6 +47,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    // Refresh the OTPAccount list each time the view appears in case any accounts
+    // were updated on the other tab
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        refreshOTPAccounts()
+        
+    }
+    
     // Call a method on this view controller when the button is tapped.”
     @objc func addAccountTapped() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -58,6 +67,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.present(addVC, animated: true)
         }
     }
+    
+    
+    
+    
+    // MARK: TO-DO
+    // Add a feature that reminds the user to export their codes and back them up in case something happens
+    // to their device
+
+}
+
+
+// MARK: - Table View Data Source Methods
+extension ViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,10 +107,4 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    
-    // MARK: TO-DO
-    // Add a feature that reminds the user to export their codes and back them up in case something happens
-    // to their device
-
 }
-

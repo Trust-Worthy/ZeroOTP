@@ -55,8 +55,8 @@ final class OTPAccount: Codable {
 
 extension OTPAccount {
     
-    // Given an account, encodes the account to data and saves to UserDefaults
-    static func saveAccount(account: OTPAccount, forAccountKey key: String) {
+    // Given an array of accounts, encodes the account to data and saves to UserDefaults
+    static func saveAccount(account: [OTPAccount], forAccountKey key: String) {
         
         // Save the OTPaccount
         let defaults = UserDefaults.standard
@@ -66,9 +66,22 @@ extension OTPAccount {
         defaults.set(encodedData, forKey: key)
     }
     
-    // 
-    
-    static func retrieveAccounts() {
+    // Retrieve an array of saved account from UserDefaults
+    static func retrieveAccounts(forAccountKey key: String) -> [OTPAccount] {
+        
+        // Get the array of saved tasks from UserDefaults
+        let defaults = UserDefaults.standard
+        
+        if let data = defaults.data(forKey: key) {
+            let decodedAccounts = try! JSONDecoder().decode([OTPAccount].self, from: data)
+            return decodedAccounts
+        } else {
+            // Normally here I would throw an error or something here
+            return []
+        }
+        
         
     }
+    
+    
 }

@@ -81,7 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Make sure that account.secret can't be printed or displayed EVER
         
         cell.otpLabel.text = account.currentOTPCode()
-        
+        print(account.currentOTPCode()!)
         return cell
     }
     

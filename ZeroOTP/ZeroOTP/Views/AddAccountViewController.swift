@@ -68,8 +68,10 @@ extension AddAccountViewController {
 //        }
         let OTPSecretObj = OTPSecret(secretInput)
         // MARK: Force unwrap for testing only
-        let OTPGenerator = TOTPGenerator(secret: OTPSecretObj!)
+        let OTPGenerator = TOTPGenerator(secret: OTPSecretObj!, algorithm: .sha1)
         let newAccount = OTPAccount(accountName: accountName, dateAdded: Date(), secret: OTPSecretObj!)
+        
+        
        
 //        // MARK: Store metadata
 //        OTPAccountStore.add(accountName: accountName)

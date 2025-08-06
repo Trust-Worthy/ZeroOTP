@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class OTPAccount {
+final class OTPAccount: Codable {
     
     let accountName: String
     let dateAdded: Date
@@ -47,5 +47,28 @@ final class OTPAccount {
     /// Optional shortcut to get current code
     func currentOTPCode() -> String? {
         return codeGenerator?.generateCurrentCode()
+    }
+    
+    
+}
+
+
+extension OTPAccount {
+    
+    // Given an account, encodes the account to data and saves to UserDefaults
+    static func saveAccount(account: OTPAccount, forAccountKey key: String) {
+        
+        // Save the OTPaccount
+        let defaults = UserDefaults.standard
+        
+        let encodedData = try! JSONEncoder().encode(account)
+        
+        defaults.set(encodedData, forKey: key)
+    }
+    
+    // 
+    
+    static func retrieveAccounts() {
+        
     }
 }

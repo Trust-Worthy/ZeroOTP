@@ -57,24 +57,24 @@ extension AddAccountViewController {
             return
         }
         
-        guard isValidBase32(secretInput) else {
-            showAlert(message: "Invalid Base32 TOTP secret. Please try again.")
-            return
-        }
-        
-        guard let otpSecret = OTPSecret(secretInput) else {
-            showAlert(message: "Failed to initialize OTP secret.")
-            return
-        }
+//        guard isValidBase32(secretInput) else {
+//            showAlert(message: "Invalid Base32 TOTP secret. Please try again.")
+//            return
+//        }
+//        
+//        guard let otpSecret = OTPSecret(secretInput) else {
+//            showAlert(message: "Failed to initialize OTP secret.")
+//            return
+//        }
         
         let newAccount = OTPAccount(accountName: accountName, dateAdded: Date()) 
         
-        // MARK: Store metadata
-        OTPAccountStore.add(accountName: accountName)
-        
-        // MARK: Store secret securely
-        // TODO: Replace with actual secure storage implementation
-//        try? SecureOTPStore.addAccount(     )
+//        // MARK: Store metadata
+//        OTPAccountStore.add(accountName: accountName)
+//        
+//        // MARK: Store secret securely
+//        // TODO: Replace with actual secure storage implementation
+////        try? SecureOTPStore.addAccount(     )
         delegate?.didAddAccount(newAccount)
         dismiss(animated: true, completion: nil)
     }

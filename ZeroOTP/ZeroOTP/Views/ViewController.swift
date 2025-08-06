@@ -79,6 +79,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        cell.otpLabel.text = generateOTP(from: account.secret) // You’ll implement this later
         // MARK: TO-DO
         // Make sure that account.secret can't be printed or displayed EVER
+        
         cell.otpLabel.text = account.currentOTPCode()
         
         return cell

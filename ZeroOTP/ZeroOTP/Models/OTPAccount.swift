@@ -35,6 +35,8 @@ final class OTPAccount {
         }
     }
     
+    // MARK: Test func to validate TOTP functionality
+    
     /// Optional shortcut to get current code
     func currentOTPCode() -> String? {
         return codeGenerator?.generateCurrentCode()

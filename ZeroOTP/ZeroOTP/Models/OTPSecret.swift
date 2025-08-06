@@ -10,35 +10,35 @@ import SwiftOTP
 import CryptoKit
 
 // MARK: - Prevent Secret Exposure in Logs / Prints
-extension OTPSecret: CustomStringConvertible, CustomDebugStringConvertible {
-    
-    
-    var description: String { "<Secret: hidden>" }
-    var debugDescription: String { "<Secret: hidden>"}
-}
+//extension OTPSecret: CustomStringConvertible, CustomDebugStringConvertible {
+//    
+//    
+//    var description: String { "<Secret: hidden>" }
+//    var debugDescription: String { "<Secret: hidden>"}
+//}
 
-extension OTPSecret {
-    var symmetricKey: SymmetricKey {
-        SymmetricKey(data: secretData)
-    }
-}
+//extension OTPSecret {
+//    var symmetricKey: SymmetricKey {
+//        SymmetricKey(data: secretData)
+//    }
+//}
+//
+//extension OTPSecret {
+//    init?(symmetricKey: SymmetricKey) {
+//        let keyData = symmetricKey.withUnsafeBytes { Data($0) }
+//        let base32String = base32Encode(keyData)
+//        
+//        self.init(base32String)
+//    }
+//}
 
-extension OTPSecret {
-    init?(symmetricKey: SymmetricKey) {
-        let keyData = symmetricKey.withUnsafeBytes { Data($0) }
-        let base32String = base32Encode(keyData)
-        
-        self.init(base32String)
-    }
-}
-
-extension OTPSecret {
-    init?(secretData: Data) {
-        let base32String = base32Encode(secretData)
-        self.init(base32String)
-    }
-}
-
+//extension OTPSecret {
+//    init?(secretData: Data) {
+//        let base32String = base32Encode(secretData)
+//        self.init(base32String)
+//    }
+//}
+//
 
 // MARK: - OTPSecret Struct: Represents a TOTP secret securely
 
@@ -94,7 +94,14 @@ struct OTPSecret {
     }
     
     
+    
+    
 }
 
 
-
+extension OTPSecret: Codable {
+    enum CodingKeys: String, CodingKey {
+        case base32String
+        case secretData
+    }
+}

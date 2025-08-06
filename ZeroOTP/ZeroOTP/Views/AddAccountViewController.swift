@@ -68,10 +68,16 @@ extension AddAccountViewController {
 //        }
         let OTPSecretObj = OTPSecret(secretInput)
         // MARK: Force unwrap for testing only
-        let OTPGenerator = TOTPGenerator(secret: OTPSecretObj!, algorithm: .sha1)
+        // Setting time interval to 10 so it's easy for testing
+        let OTPGenerator = TOTPGenerator(secret: OTPSecretObj!, timeInterval: 10, algorithm: .sha1)
         let newAccount = OTPAccount(accountName: accountName, dateAdded: Date(), secret: OTPSecretObj!)
         
+        // save account
+        // this design patter is sooooo freaking clever
+        newAccount.addUserOTPAccount()
         
+        delegate?.didAddAccount(newAccount)
+        dismiss(animated: true, completion: nil)
        
 //        // MARK: Store metadata
 //        OTPAccountStore.add(accountName: accountName)
@@ -79,8 +85,7 @@ extension AddAccountViewController {
 //        // MARK: Store secret securely
 //        // TODO: Replace with actual secure storage implementation
 ////        try? SecureOTPStore.addAccount(     )
-        delegate?.didAddAccount(newAccount)
-        dismiss(animated: true, completion: nil)
+        
     }
     
     func isValidBase32(_ string: String) -> Bool {

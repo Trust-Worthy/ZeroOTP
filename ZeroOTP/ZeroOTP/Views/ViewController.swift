@@ -43,6 +43,9 @@ class ViewController: UIViewController{
         // Refresh / fetch
         refreshOTPAccounts()
         
+        
+
+        
     }
     
     // Refresh the OTPAccount list each time the view appears in case any accounts
@@ -74,6 +77,7 @@ class ViewController: UIViewController{
         // In ZeroOTP, I'm getting data from secure storage
         self.OTPAccounts = OTPAccount.retrieveOTPAccounts(forAccountKey: OTPAccount.otpAccountsKey)
         
+        
         // Reload the table view with the OTP data
         self.accountTableView.reloadData()
     }
@@ -88,6 +92,8 @@ class ViewController: UIViewController{
 extension ViewController: UITableViewDelegate ,AddAccountDelegate{
   
     func didAddAccount(_ account: OTPAccount) {
+        
+        //
         OTPAccounts.append(account)
         
         // Added the self
@@ -116,9 +122,9 @@ extension ViewController: UITableViewDataSource {
         
         cell.accountLabel.text = account.accountName
        
-        
+        // MARK: - Important line. Everytime the tableview is refreshed it should show the new codes
         cell.otpLabel.text = account.currentOTPCode()
-        print(account.currentOTPCode()!)
+//        print(account.currentOTPCode()!)
         return cell
         
         

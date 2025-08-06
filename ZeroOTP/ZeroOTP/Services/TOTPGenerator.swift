@@ -41,6 +41,9 @@ struct TOTPGenerator {
     }
     
     
+    
+    
+    
     // MARK: - OTP Code Generation
 
    /// Generate the current OTP code based on system time

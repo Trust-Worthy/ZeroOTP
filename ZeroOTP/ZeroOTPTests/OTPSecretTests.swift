@@ -44,7 +44,4 @@ final class OTPSecretTests: XCTestCase {
     }
     
     
-    
-    
-    
 }

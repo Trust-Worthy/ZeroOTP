@@ -53,6 +53,7 @@ final class TOTPGeneratorTests: XCTestCase {
         XCTAssertNotEqual(code1, code2, "OTP should change over time")
     }
     
+    // MARK: Failed Test
     func testSameTimeSameCode() {
         let secret = OTPSecret("JBSWY3DPEHPK3PXP")!
         

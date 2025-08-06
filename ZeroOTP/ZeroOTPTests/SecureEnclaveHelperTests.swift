@@ -11,6 +11,7 @@ import CryptoKit
 
 final class SecureEnclaveHelperTests: XCTestCase {
     
+    // MARK: Failed Test
     func testKeyGenerationAndRetrieval() {
         let key = SecureEnclaveHelper.generateAndStoreSecureEnclaveKey()
         XCTAssertNotNil(key)
@@ -20,6 +21,7 @@ final class SecureEnclaveHelperTests: XCTestCase {
         XCTAssertEqual(SecKeyCopyExternalRepresentation(key!, nil) == nil, true)
     }
     
+    // MARK: Failed Test
     func testWrapAndUnwrapSymmetricKey() {
         let symmetricKey = SymmetricKey(size: .bits256)
         
@@ -38,6 +40,7 @@ final class SecureEnclaveHelperTests: XCTestCase {
                        "Unwrapped key does not match original")
     }
     
+    // MARK: Failed Test
     func testWrapFailsIfNoKeyAvailable() {
         // Simulate failure by deleting the key (if needed)
         // WARNING: This removes real keys from the Secure Enclave for this app
@@ -69,15 +72,22 @@ final class SecureEnclaveHelperTests: XCTestCase {
            XCTAssertEqual(decrypted, data, "Decrypted data should match original")
        }
        
+    // MARK: Failed Test
        func testSecureEnclaveKeyWrapUnwrap() {
            // Generate a symmetric key to wrap
            let symmetricKey = SymmetricKey(size: .bits256)
            
-           // Generate or get Secure Enclave key
-           guard let seKey = SecureEnclaveHelper.getSecureEnclaveKey() ?? SecureEnclaveHelper.generateAndStoreSecureEnclaveKey() else {
+//           // Generate or get Secure Enclave key
+//           guard let seKey = SecureEnclaveHelper.getSecureEnclaveKey() ?? SecureEnclaveHelper.generateAndStoreSecureEnclaveKey() else {
+//               XCTFail("Failed to get or generate Secure Enclave key")
+//               return
+//           }
+           // Alternative way of running the test above
+           guard (SecureEnclaveHelper.getSecureEnclaveKey() ?? SecureEnclaveHelper.generateAndStoreSecureEnclaveKey()) != nil else {
                XCTFail("Failed to get or generate Secure Enclave key")
                return
            }
+
            
            // Wrap the symmetric key
            guard let wrappedData = SecureEnclaveHelper.wrapKey(symmetricKey) else {

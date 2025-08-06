@@ -66,9 +66,11 @@ extension AddAccountViewController {
 //            showAlert(message: "Failed to initialize OTP secret.")
 //            return
 //        }
-        
-        let newAccount = OTPAccount(accountName: accountName, dateAdded: Date()) 
-        
+        let OTPSecretObj = OTPSecret(secretInput)
+        // MARK: Force unwrap for testing only
+        let OTPGenerator = TOTPGenerator(secret: OTPSecretObj!)
+        let newAccount = OTPAccount(accountName: accountName, dateAdded: Date(), secret: OTPSecretObj!)
+       
 //        // MARK: Store metadata
 //        OTPAccountStore.add(accountName: accountName)
 //        

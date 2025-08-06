@@ -13,11 +13,17 @@ final class OTPAccount {
     let dateAdded: Date
     private(set) var codeGenerator: TOTPGenerator?
     
-    init(accountName: String, dateAdded: Date) {
+    init(accountName: String, dateAdded: Date, secret: OTPSecret) {
         self.accountName = accountName
         self.dateAdded = dateAdded
-        self.codeGenerator = nil
+        self.codeGenerator = TOTPGenerator(secret: secret)
     }
+    
+//    init(accountName: String, dateAdded: Date) {
+//        self.accountName = accountName
+//        self.dateAdded = dateAdded
+//        self.codeGenerator = nil
+//    }
     
     /// Fetches secret from SecureOTPStore and reinitializes generator
     func unlockGenerator(completion: @escaping (Bool) -> Void) {
@@ -36,6 +42,7 @@ final class OTPAccount {
     }
     
     // MARK: Test func to validate TOTP functionality
+    
     
     /// Optional shortcut to get current code
     func currentOTPCode() -> String? {

@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ZeroOTP
 //
-//  Created by Jonathan Bateman on 7/17/25.
+//  Created by Trust-Worthy on 7/17/25.
 //
 
 import UIKit

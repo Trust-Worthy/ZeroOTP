@@ -18,7 +18,7 @@ struct TOTPGenerator {
     private let otpSecret: OTPSecret
    
     /// Number of digits in the generated OTP (typically 6)
-        private let digits: Int
+    private let digits: Int
         
     /// Time step in seconds (usually 30s)
     private let timeInterval: Int

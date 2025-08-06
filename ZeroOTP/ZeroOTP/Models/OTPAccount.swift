@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OTPAccount {
+final class OTPAccount {
     
     let accountName: String
     let dateAdded: Date
@@ -20,8 +20,12 @@ struct OTPAccount {
     }
     
     /// Fetches secret from SecureOTPStore and reinitializes generator
-    mutating func unlockGenerator(completion: @escaping (Bool) -> Void) {
-        SecureOTPStore.shared.unlockSecret(for: accountName) { secret in
+    func unlockGenerator(completion: @escaping (Bool) -> Void) {
+        SecureOTPStore.shared.unlockSecret(for: accountName) { [weak self] secret in
+            guard let self = self else {
+                completion(false)
+                return
+            }
             if let secret = secret {
                 self.codeGenerator = TOTPGenerator(secret: secret)
                 completion(true)
@@ -29,8 +33,6 @@ struct OTPAccount {
                 completion(false)
             }
         }
-        
-        
     }
     
     /// Optional shortcut to get current code

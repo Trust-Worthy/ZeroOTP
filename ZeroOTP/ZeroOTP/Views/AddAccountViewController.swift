@@ -74,7 +74,7 @@ extension AddAccountViewController {
         
         // MARK: Store secret securely
         // TODO: Replace with actual secure storage implementation
-        try? SecureOTPStore.addAccount(     )
+//        try? SecureOTPStore.addAccount(     )
         delegate?.didAddAccount(newAccount)
         dismiss(animated: true, completion: nil)
     }

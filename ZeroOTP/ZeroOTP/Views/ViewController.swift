@@ -69,7 +69,10 @@ class ViewController: UIViewController, UITableViewDelegate, AddAccountDelegate 
     }
     
     
-    
+    private func refreshOTPAccounts() {
+        
+        var accounts = OTPAccount.retrieveAccounts(forAccountKey: OTPAccount.)
+    }
     
     // MARK: TO-DO
     // Add a feature that reminds the user to export their codes and back them up in case something happens

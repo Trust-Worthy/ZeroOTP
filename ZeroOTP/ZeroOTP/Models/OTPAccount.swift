@@ -7,11 +7,14 @@
 
 import Foundation
 
-final class OTPAccount: Codable {
+struct OTPAccount: Codable, Equatable {
     
     let accountName: String
     let dateAdded: Date
     private(set) var codeGenerator: TOTPGenerator?
+    
+    
+    
     
     init(accountName: String, dateAdded: Date, secret: OTPSecret) {
         self.accountName = accountName
@@ -26,20 +29,20 @@ final class OTPAccount: Codable {
 //    }
     
     /// Fetches secret from SecureOTPStore and reinitializes generator
-    func unlockGenerator(completion: @escaping (Bool) -> Void) {
-        SecureOTPStore.shared.unlockSecret(for: accountName) { [weak self] secret in
-            guard let self = self else {
-                completion(false)
-                return
-            }
-            if let secret = secret {
-                self.codeGenerator = TOTPGenerator(secret: secret)
-                completion(true)
-            } else {
-                completion(false)
-            }
-        }
-    }
+//    func unlockGenerator(completion: @escaping (Bool) -> Void) {
+//        SecureOTPStore.shared.unlockSecret(for: accountName) { [weak self] secret in
+//            guard let self = self else {
+//                completion(false)
+//                return
+//            }
+//            if let secret = secret {
+//                self.codeGenerator = TOTPGenerator(secret: secret)
+//                completion(true)
+//            } else {
+//                completion(false)
+//            }
+//        }
+//    }
     
     // MARK: Test func to validate TOTP functionality
     
@@ -55,30 +58,51 @@ final class OTPAccount: Codable {
 
 extension OTPAccount {
     
+    static var otpAccountsKey: String {
+        return "UserOTPAccounts"
+    }
+    
     // Given an array of accounts, encodes the account to data and saves to UserDefaults
-    static func saveAccount(account: [OTPAccount], forAccountKey key: String) {
+    static func saveOTPAccount(accounts: [OTPAccount], forAccountKey key: String) {
         
         // Save the OTPaccount
         let defaults = UserDefaults.standard
         
-        let encodedData = try! JSONEncoder().encode(account)
+        let encodedData = try! JSONEncoder().encode(accounts)
         
         defaults.set(encodedData, forKey: key)
     }
     
     // Retrieve an array of saved account from UserDefaults
-    static func retrieveAccounts(forAccountKey key: String) -> [OTPAccount] {
+    static func retrieveOTPAccounts(forAccountKey key: String) -> [OTPAccount] {
         
         // Get the array of saved tasks from UserDefaults
         let defaults = UserDefaults.standard
         
         if let data = defaults.data(forKey: key) {
+            
             let decodedAccounts = try! JSONDecoder().decode([OTPAccount].self, from: data)
             return decodedAccounts
         } else {
             // Normally here I would throw an error or something here
             return []
         }
+        
+        
+    }
+    
+    // Adds the OTP account to the accounts array in UserDefaults.
+    func addUserOTPAccount() {
+        
+        // Get all OTP Accounts for specific user from UserDefaults
+        var existingOTPAccounts = OTPAccount.retrieveOTPAccounts(forAccountKey: OTPAccount.otpAccountsKey)
+        
+        // Add the new OTP account to the array of existing accounts
+        // This method is available on instances so I can save self
+        existingOTPAccounts.append(self)
+        
+        // Save the updated OTP Accounts array
+        OTPAccount.saveOTPAccount(accounts: existingOTPAccounts, forAccountKey: OTPAccount.otpAccountsKey)
         
         
     }

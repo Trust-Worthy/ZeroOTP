@@ -24,7 +24,7 @@ struct OTPAccount: Codable{
         self.accountName = accountName
         self.dateAdded = dateAdded
         self.otpSecret = secret
-        self.codeGenerator = TOTPGenerator(secret: secret)
+        self.codeGenerator = TOTPGenerator(secret: secret, algorithm: .sha1)
     }
     
     // This init is used when decoding from disk/storage
@@ -32,7 +32,7 @@ struct OTPAccount: Codable{
         self.accountName = accountName
         self.dateAdded = dateAdded
         self.otpSecret = otpSecret
-        self.codeGenerator = TOTPGenerator(secret: otpSecret)
+        self.codeGenerator = TOTPGenerator(secret: otpSecret, algorithm: .sha1)
     }
     
 //    init(accountName: String, dateAdded: Date) {

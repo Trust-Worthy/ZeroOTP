@@ -32,7 +32,9 @@ struct OTPAccount: Codable{
         self.accountName = accountName
         self.dateAdded = dateAdded
         self.otpSecret = otpSecret
-        self.codeGenerator = TOTPGenerator(secret: otpSecret, algorithm: .sha1)
+        self.codeGenerator = TOTPGenerator(secret: otpSecret, algorithm: .sha1
+        
+        )
     }
     
 //    init(accountName: String, dateAdded: Date) {
